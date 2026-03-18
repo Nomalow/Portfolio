@@ -1,6 +1,7 @@
 /**
  * projects.js — Page Projets
- * Autonome : ne dépend pas de main.js
+ * Autonome : contient initReveal, filtres et modale PDF.
+ * Ne dépend pas de main.js.
  */
 
 /* ── REVEAL AU SCROLL ── */
@@ -8,10 +9,9 @@ function initReveal() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      const el = entry.target;
+      const el       = entry.target;
       const siblings = [...(el.parentElement?.querySelectorAll('.reveal') ?? [])];
-      const delay = siblings.indexOf(el) * 80;
-      setTimeout(() => el.classList.add('visible'), delay);
+      setTimeout(() => el.classList.add('visible'), siblings.indexOf(el) * 80);
       observer.unobserve(el);
     });
   }, { threshold: 0.1 });
@@ -29,8 +29,7 @@ function initFilters() {
       btn.classList.add('active');
       const filter = btn.dataset.filter;
       cards.forEach((card) => {
-        const match = filter === 'all' || card.dataset.cat === filter;
-        card.classList.toggle('hidden', !match);
+        card.classList.toggle('hidden', filter !== 'all' && card.dataset.cat !== filter);
       });
     });
   });
@@ -57,36 +56,34 @@ function initModal() {
       const stack  = card.dataset.stack ?? '';
       const status = card.dataset.status;
 
-      // Rempli le header
+      /* Rempli le header */
       modalIco.textContent  = ico;
       modalName.textContent = name;
       modalDl.href          = pdf;
 
-      // Stack tags
+      /* Stack tags */
       modalStack.innerHTML = stack.split(',')
         .map((s) => `<span class="stack-tag">${s.trim()}</span>`)
         .join('');
 
-      // Status
+      /* Status badge */
       modalStatus.textContent = status === 'done' ? '✓ Terminé' : '⏳ En cours';
       modalStatus.className   = 'modal-status ' + (status === 'done' ? 'status-done' : 'status-wip');
 
-      // Reset état
+      /* Reset état */
       loading.style.display  = 'flex';
-      iframe.style.display   = 'none';
       errorBox.style.display = 'none';
+      iframe.style.display   = 'none';
       iframe.src             = '';
 
-      // Ouvre la modale
+      /* Ouvre la modale */
       overlay.classList.add('open');
       document.body.classList.add('modal-open');
 
-      // Vérifie que le PDF existe avant de le charger
+      /* Vérifie que le PDF existe avant de charger */
       fetch(pdf, { method: 'HEAD' })
         .then((res) => {
           if (!res.ok) throw new Error('PDF introuvable');
-
-          // PDF trouvé → charge dans l'iframe
           iframe.src = pdf;
           iframe.onload = () => {
             loading.style.display = 'none';
@@ -94,24 +91,24 @@ function initModal() {
           };
         })
         .catch(() => {
-          // PDF manquant → affiche message d'erreur
           loading.style.display  = 'none';
           errorBox.style.display = 'flex';
         });
     });
   });
 
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
   function closeModal() {
     overlay.classList.remove('open');
     document.body.classList.remove('modal-open');
     setTimeout(() => { iframe.src = ''; }, 250);
   }
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 }
 
+/* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initFilters();
