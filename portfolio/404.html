@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page introuvable</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --white: #ffffff;
+      --text: #1a1a1a;
+      --muted: #737373;
+      --light: #f0eeeb;
+      --border: #e8e5e0;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --shadow: 0 2px 12px rgba(0,0,0,0.07);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 16px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
+
+    .nav-logo {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+      margin-right: 8px;
+      padding-right: 12px;
+      border-right: 1px solid var(--border);
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    nav a {
+      padding: 6px 12px;
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    /* PAGE */
+    .error-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 32px 60px;
+      text-align: center;
+    }
+
+    .error-wrap { max-width: 520px; width: 100%; }
+
+    .error-code {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(100px, 22vw, 160px);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.6s 0.1s forwards;
+      user-select: none;
+    }
+
+    .error-code span { color: var(--accent); }
+
+    .error-emoji {
+      font-size: 52px;
+      display: block;
+      margin: 8px 0 20px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+
+    .error-title {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.25s forwards;
+    }
+
+    .error-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 380px;
+      margin: 0 auto 36px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.3s forwards;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.35s forwards;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-dark { background: var(--text); color: white; }
+    .btn-dark:hover { background: #333; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+
+    .btn-light { background: var(--white); color: var(--text); border: 1.5px solid var(--border); }
+    .btn-light:hover { border-color: var(--text); transform: translateY(-2px); box-shadow: var(--shadow); }
+
+    .error-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.4s forwards;
+    }
+
+    .error-nav-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.45s forwards;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s forwards;
+    }
+
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .quick-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      padding: 24px 32px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 700px) {
+      nav { top: 10px; padding: 8px 12px; }
+      nav a { padding: 5px 8px; font-size: 11px; }
+      .nav-logo { font-size: 12px; margin-right: 4px; padding-right: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
+    <a href="index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html">Projets</a>
+    <a href="parcours.html">Parcours</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="error-page">
+    <div class="error-wrap">
+
+      <div class="error-code">4<span>0</span>4</div>
+      <span class="error-emoji">🔍</span>
+      <h1 class="error-title">Page introuvable</h1>
+      <p class="error-desc">
+        Oups ! La page que tu cherches n'existe pas ou a été déplacée.
+        Pas de panique, retourne à l'accueil.
+      </p>
+
+      <div class="error-actions">
+        <a href="index.html" class="btn btn-dark">← Retour à l'accueil</a>
+        <a href="contact.html" class="btn btn-light">Me contacter</a>
+      </div>
+
+      <div class="error-divider"></div>
+      <p class="error-nav-label">Ou explore le portfolio</p>
+
+      <div class="quick-links">
+        <a href="about.html"    class="quick-link">👤 À propos</a>
+        <a href="skills.html"   class="quick-link">⚡ Skills</a>
+        <a href="projects.html" class="quick-link">🛠️ Projets</a>
+        <a href="certs.html"    class="quick-link">🏆 Certifications</a>
+        <a href="parcours.html" class="quick-link">🗺️ Parcours</a>
+        <a href="contact.html"  class="quick-link">✉️ Contact</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p>
+  </footer>
+
+</body>
+</html>
