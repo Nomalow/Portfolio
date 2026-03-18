@@ -276,22 +276,32 @@
   </footer>
 
   <script>
-    /**
-     * Détecte automatiquement la base du site (ex: /Portfolio/)
-     * et construit les bons chemins pour chaque lien.
-     * Fonctionne peu importe le nom du repo GitHub Pages.
-     */
     (function () {
-      // Récupère le chemin de base = tout sauf le fichier courant
-      // Ex: /Portfolio/contact.html → base = /Portfolio/
-      const pathParts = window.location.pathname.split('/');
-      pathParts.pop(); // retire le fichier courant (404.html ou autre)
-      const base = pathParts.join('/') + '/';
+      /**
+       * Sur GitHub Pages l'URL ressemble à :
+       *   https://nomalow.github.io/Portfolio/n'importe-quoi
+       *
+       * On veut construire :
+       *   https://nomalow.github.io/Portfolio/index.html
+       *
+       * La règle : on prend seulement le PREMIER segment du path
+       * (= le nom du repo), et on ignore tout le reste.
+       *
+       * pathname = "/Portfolio/about.html/index.html"
+       * segments filtrés = ["Portfolio", "about.html", "index.html"]
+       * on ne garde que segments[0] = "Portfolio"
+       * base = "/Portfolio/"
+       */
+      const segments = window.location.pathname.split('/').filter(Boolean);
+      
+      // Si on est sur un domaine custom sans sous-dossier (ex: monsite.com)
+      // segments[0] sera déjà un fichier html — on met la base à "/"
+      const firstSegment = segments[0] ?? '';
+      const isRepoFolder = !firstSegment.endsWith('.html') && firstSegment !== '';
+      const base = window.location.origin + (isRepoFolder ? '/' + firstSegment + '/' : '/');
 
-      // Applique le bon href à tous les liens avec data-page
       document.querySelectorAll('[data-page]').forEach((link) => {
-        const page = link.getAttribute('data-page');
-        link.setAttribute('href', base + page);
+        link.setAttribute('href', base + link.getAttribute('data-page'));
       });
     })();
   </script>
