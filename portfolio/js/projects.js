@@ -1,11 +1,23 @@
 /**
  * projects.js — Page Projets
- *
- * Responsabilités :
- *  1. Révélation au scroll (via main.js)
- *  2. Filtrage des cartes par catégorie (data-cat)
- *  3. Ouverture de la modale PDF au clic sur une carte
+ * Autonome : ne dépend pas de main.js
  */
+
+/* ── REVEAL AU SCROLL ── */
+function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const siblings = [...(el.parentElement?.querySelectorAll('.reveal') ?? [])];
+      const delay = siblings.indexOf(el) * 80;
+      setTimeout(() => el.classList.add('visible'), delay);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+}
 
 /* ── FILTRES ── */
 function initFilters() {
@@ -16,7 +28,6 @@ function initFilters() {
     btn.addEventListener('click', () => {
       buttons.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
-
       const filter = btn.dataset.filter;
       cards.forEach((card) => {
         const match = filter === 'all' || card.dataset.cat === filter;
@@ -28,17 +39,18 @@ function initFilters() {
 
 /* ── MODALE PDF ── */
 function initModal() {
-  const overlay  = document.getElementById('modalOverlay');
-  const iframe   = document.getElementById('modalIframe');
-  const loading  = document.getElementById('modalLoading');
-  const modalIco = document.getElementById('modalIco');
-  const modalName= document.getElementById('modalName');
-  const modalDl  = document.getElementById('modalDownload');
-  const modalStack  = document.getElementById('modalStack');
-  const modalStatus = document.getElementById('modalStatus');
-  const closeBtn = document.getElementById('modalClose');
+  const overlay      = document.getElementById('modalOverlay');
+  const modal        = document.getElementById('modal');
+  const iframe       = document.getElementById('modalIframe');
+  const loading      = document.getElementById('modalLoading');
+  const modalIco     = document.getElementById('modalIco');
+  const modalName    = document.getElementById('modalName');
+  const modalDl      = document.getElementById('modalDownload');
+  const modalStack   = document.getElementById('modalStack');
+  const modalStatus  = document.getElementById('modalStatus');
+  const closeBtn     = document.getElementById('modalClose');
 
-  // Ouvre la modale avec les infos du projet cliqué
+  // Clic sur une carte → ouvre la modale
   document.querySelectorAll('.project-card').forEach((card) => {
     card.addEventListener('click', () => {
       const pdf    = card.dataset.pdf;
@@ -47,18 +59,17 @@ function initModal() {
       const stack  = card.dataset.stack ?? '';
       const status = card.dataset.status;
 
-      // Rempli le header
+      // Header
       modalIco.textContent  = ico;
       modalName.textContent = name;
       modalDl.href          = pdf;
 
-      // Rempli le footer — stack tags
-      modalStack.innerHTML = stack
-        .split(',')
+      // Stack tags
+      modalStack.innerHTML = stack.split(',')
         .map((s) => `<span class="stack-tag">${s.trim()}</span>`)
         .join('');
 
-      // Status badge
+      // Status
       if (status === 'done') {
         modalStatus.textContent = '✓ Terminé';
         modalStatus.className   = 'modal-status status-done';
@@ -67,7 +78,7 @@ function initModal() {
         modalStatus.className   = 'modal-status status-wip';
       }
 
-      // Affiche le loader, cache l'iframe
+      // Loader visible, iframe cachée
       loading.style.display = 'flex';
       iframe.style.display  = 'none';
       iframe.src            = '';
@@ -76,8 +87,7 @@ function initModal() {
       overlay.classList.add('open');
       document.body.classList.add('modal-open');
 
-      // Charge le PDF dans l'iframe
-      // Petit délai pour que l'animation d'ouverture soit visible
+      // Charge le PDF
       setTimeout(() => {
         iframe.src = pdf;
         iframe.onload = () => {
@@ -88,15 +98,15 @@ function initModal() {
     });
   });
 
-  // Ferme la modale — bouton ✕
+  // Ferme — bouton ✕
   closeBtn.addEventListener('click', closeModal);
 
-  // Ferme la modale — clic sur l'overlay (hors modal)
+  // Ferme — clic sur le fond
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeModal();
   });
 
-  // Ferme la modale — touche Échap
+  // Ferme — touche Échap
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
@@ -104,14 +114,13 @@ function initModal() {
   function closeModal() {
     overlay.classList.remove('open');
     document.body.classList.remove('modal-open');
-    // Vide l'iframe après la transition pour stopper le PDF
     setTimeout(() => { iframe.src = ''; }, 250);
   }
 }
 
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
-  initReveal(80);
+  initReveal();
   initFilters();
   initModal();
 });
