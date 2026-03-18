@@ -15,7 +15,6 @@ function initReveal() {
       observer.unobserve(el);
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 }
 
@@ -39,18 +38,17 @@ function initFilters() {
 
 /* ── MODALE PDF ── */
 function initModal() {
-  const overlay      = document.getElementById('modalOverlay');
-  const modal        = document.getElementById('modal');
-  const iframe       = document.getElementById('modalIframe');
-  const loading      = document.getElementById('modalLoading');
-  const modalIco     = document.getElementById('modalIco');
-  const modalName    = document.getElementById('modalName');
-  const modalDl      = document.getElementById('modalDownload');
-  const modalStack   = document.getElementById('modalStack');
-  const modalStatus  = document.getElementById('modalStatus');
-  const closeBtn     = document.getElementById('modalClose');
+  const overlay     = document.getElementById('modalOverlay');
+  const iframe      = document.getElementById('modalIframe');
+  const loading     = document.getElementById('modalLoading');
+  const errorBox    = document.getElementById('modalError');
+  const modalIco    = document.getElementById('modalIco');
+  const modalName   = document.getElementById('modalName');
+  const modalDl     = document.getElementById('modalDownload');
+  const modalStack  = document.getElementById('modalStack');
+  const modalStatus = document.getElementById('modalStatus');
+  const closeBtn    = document.getElementById('modalClose');
 
-  // Clic sur une carte → ouvre la modale
   document.querySelectorAll('.project-card').forEach((card) => {
     card.addEventListener('click', () => {
       const pdf    = card.dataset.pdf;
@@ -59,7 +57,7 @@ function initModal() {
       const stack  = card.dataset.stack ?? '';
       const status = card.dataset.status;
 
-      // Header
+      // Rempli le header
       modalIco.textContent  = ico;
       modalName.textContent = name;
       modalDl.href          = pdf;
@@ -70,46 +68,42 @@ function initModal() {
         .join('');
 
       // Status
-      if (status === 'done') {
-        modalStatus.textContent = '✓ Terminé';
-        modalStatus.className   = 'modal-status status-done';
-      } else {
-        modalStatus.textContent = '⏳ En cours';
-        modalStatus.className   = 'modal-status status-wip';
-      }
+      modalStatus.textContent = status === 'done' ? '✓ Terminé' : '⏳ En cours';
+      modalStatus.className   = 'modal-status ' + (status === 'done' ? 'status-done' : 'status-wip');
 
-      // Loader visible, iframe cachée
-      loading.style.display = 'flex';
-      iframe.style.display  = 'none';
-      iframe.src            = '';
+      // Reset état
+      loading.style.display  = 'flex';
+      iframe.style.display   = 'none';
+      errorBox.style.display = 'none';
+      iframe.src             = '';
 
       // Ouvre la modale
       overlay.classList.add('open');
       document.body.classList.add('modal-open');
 
-      // Charge le PDF
-      setTimeout(() => {
-        iframe.src = pdf;
-        iframe.onload = () => {
-          loading.style.display = 'none';
-          iframe.style.display  = 'block';
-        };
-      }, 150);
+      // Vérifie que le PDF existe avant de le charger
+      fetch(pdf, { method: 'HEAD' })
+        .then((res) => {
+          if (!res.ok) throw new Error('PDF introuvable');
+
+          // PDF trouvé → charge dans l'iframe
+          iframe.src = pdf;
+          iframe.onload = () => {
+            loading.style.display = 'none';
+            iframe.style.display  = 'block';
+          };
+        })
+        .catch(() => {
+          // PDF manquant → affiche message d'erreur
+          loading.style.display  = 'none';
+          errorBox.style.display = 'flex';
+        });
     });
   });
 
-  // Ferme — bouton ✕
   closeBtn.addEventListener('click', closeModal);
-
-  // Ferme — clic sur le fond
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
-  });
-
-  // Ferme — touche Échap
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
   function closeModal() {
     overlay.classList.remove('open');
@@ -118,7 +112,6 @@ function initModal() {
   }
 }
 
-/* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
   initReveal();
   initFilters();
