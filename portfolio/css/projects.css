@@ -1,4 +1,4 @@
-/* ── projects.css — styles propres à la page Projets ── */
+/* ── projects.css ── */
 
 .filter-bar {
   display: flex;
@@ -33,17 +33,21 @@
   gap: 16px;
 }
 
+/* Carte = <button> donc on reset les styles par défaut */
 .project-card {
   background: var(--white);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
-  text-decoration: none;
   color: inherit;
   display: flex;
   flex-direction: column;
   gap: 12px;
   transition: all 0.25s;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
 .project-card:hover {
