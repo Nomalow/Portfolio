@@ -6,190 +6,6 @@
   <title>Portfolio — Projets</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/projects.css">
-  <style>
-    /* ── MODAL PDF ── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .modal {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 860px;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.2);
-      transform: translateY(20px) scale(0.98);
-      transition: transform 0.25s ease;
-      overflow: hidden;
-    }
-
-    .modal-overlay.open .modal {
-      transform: translateY(0) scale(1);
-    }
-
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 24px;
-      border-bottom: 1.5px solid var(--border);
-      flex-shrink: 0;
-    }
-
-    .modal-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .modal-ico {
-      width: 40px; height: 40px;
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px;
-    }
-
-    .modal-name {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .modal-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .modal-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1.5px solid var(--border);
-      background: var(--bg);
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .modal-btn:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-light);
-    }
-
-    .modal-close {
-      width: 36px; height: 36px;
-      border-radius: 10px;
-      border: 1.5px solid var(--border);
-      background: var(--bg);
-      color: var(--muted);
-      font-size: 18px;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.2s;
-      flex-shrink: 0;
-    }
-
-    .modal-close:hover {
-      border-color: #ef4444;
-      color: #ef4444;
-      background: #fef2f2;
-    }
-
-    .modal-body {
-      flex: 1;
-      overflow: hidden;
-      background: var(--light);
-      position: relative;
-      min-height: 400px;
-    }
-
-    .modal-body iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    .modal-loading {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .modal-loading-spinner {
-      width: 36px; height: 36px;
-      border: 3px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .modal-footer {
-      padding: 14px 24px;
-      border-top: 1.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-shrink: 0;
-      background: var(--bg);
-    }
-
-    .modal-stack { display: flex; gap: 6px; flex-wrap: wrap; }
-
-    .modal-status {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      border-radius: 6px;
-    }
-
-    .status-done { background: var(--green-light); color: var(--green); }
-    .status-wip  { background: #fef9c3; color: #a16207; }
-
-    /* Empêche le scroll du body quand modal ouverte */
-    body.modal-open { overflow: hidden; }
-  </style>
 </head>
 <body>
 
@@ -222,11 +38,9 @@
       <div class="projects-grid">
 
         <button class="project-card reveal" data-cat="web"
-          data-name="E-Commerce App"
-          data-ico="🛒"
+          data-name="E-Commerce App" data-ico="🛒"
           data-pdf="pdfs/ecommerce.pdf"
-          data-stack="React,Node.js,MongoDB"
-          data-status="done">
+          data-stack="React,Node.js,MongoDB" data-status="done">
           <div class="proj-top">
             <div class="proj-ico">🛒</div>
             <span class="proj-arrow">↗</span>
@@ -244,11 +58,9 @@
         </button>
 
         <button class="project-card reveal" data-cat="ia"
-          data-name="Chatbot IA"
-          data-ico="🤖"
+          data-name="Chatbot IA" data-ico="🤖"
           data-pdf="pdfs/chatbot.pdf"
-          data-stack="Python,FastAPI,OpenAI"
-          data-status="done">
+          data-stack="Python,FastAPI,OpenAI" data-status="done">
           <div class="proj-top">
             <div class="proj-ico">🤖</div>
             <span class="proj-arrow">↗</span>
@@ -266,11 +78,9 @@
         </button>
 
         <button class="project-card reveal" data-cat="web"
-          data-name="Dashboard Analytics"
-          data-ico="📊"
+          data-name="Dashboard Analytics" data-ico="📊"
           data-pdf="pdfs/dashboard.pdf"
-          data-stack="Vue.js,D3.js,PostgreSQL"
-          data-status="done">
+          data-stack="Vue.js,D3.js,PostgreSQL" data-status="done">
           <div class="proj-top">
             <div class="proj-ico">📊</div>
             <span class="proj-arrow">↗</span>
@@ -288,11 +98,9 @@
         </button>
 
         <button class="project-card reveal" data-cat="web"
-          data-name="Auth System"
-          data-ico="🔐"
+          data-name="Auth System" data-ico="🔐"
           data-pdf="pdfs/auth.pdf"
-          data-stack="Express,JWT,Docker"
-          data-status="done">
+          data-stack="Express,JWT,Docker" data-status="done">
           <div class="proj-top">
             <div class="proj-ico">🔐</div>
             <span class="proj-arrow">↗</span>
@@ -310,11 +118,9 @@
         </button>
 
         <button class="project-card reveal" data-cat="mobile"
-          data-name="App Mobile Todo"
-          data-ico="📱"
+          data-name="App Mobile Todo" data-ico="📱"
           data-pdf="pdfs/todo.pdf"
-          data-stack="React Native,Firebase"
-          data-status="wip">
+          data-stack="React Native,Firebase" data-status="wip">
           <div class="proj-top">
             <div class="proj-ico">📱</div>
             <span class="proj-arrow">↗</span>
@@ -331,11 +137,9 @@
         </button>
 
         <button class="project-card reveal" data-cat="ia"
-          data-name="Moteur de recommandation"
-          data-ico="🔍"
+          data-name="Moteur de recommandation" data-ico="🔍"
           data-pdf="pdfs/recommandation.pdf"
-          data-stack="Python,scikit-learn,Pandas"
-          data-status="done">
+          data-stack="Python,scikit-learn,Pandas" data-status="done">
           <div class="proj-top">
             <div class="proj-ico">🔍</div>
             <span class="proj-arrow">↗</span>
@@ -361,7 +165,7 @@
 
   <!-- ── MODALE PDF ── -->
   <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="modal">
+    <div class="modal">
 
       <div class="modal-header">
         <div class="modal-title">
@@ -374,7 +178,7 @@
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="12" y1="18" x2="12" y2="12"/>
-              <line x1="9" y1="15" x2="15" y2="15"/>
+              <line x1="9"  y1="15" x2="15" y2="15"/>
             </svg>
             Télécharger
           </a>
@@ -382,12 +186,20 @@
         </div>
       </div>
 
-      <div class="modal-body" id="modalBody">
+      <div class="modal-body">
         <div class="modal-loading" id="modalLoading">
           <div class="modal-loading-spinner"></div>
           <span>Chargement du PDF…</span>
         </div>
-        <iframe id="modalIframe" title="PDF viewer"></iframe>
+        <div class="modal-error" id="modalError">
+          <span class="modal-error-ico">📂</span>
+          <p class="modal-error-title">PDF introuvable</p>
+          <p class="modal-error-desc">
+            Ajoute le fichier dans le dossier
+            <code>pdfs/</code> de ton repo GitHub.
+          </p>
+        </div>
+        <iframe id="modalIframe" title="Aperçu PDF"></iframe>
       </div>
 
       <div class="modal-footer">
@@ -398,7 +210,7 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
   <script src="js/projects.js"></script>
+
 </body>
 </html>
