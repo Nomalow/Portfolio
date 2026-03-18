@@ -35,7 +35,7 @@
     .lang-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .lang-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; transition: all 0.2s; }
     .lang-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
-    .lang-flag { font-size: 48px; margin-bottom: 10px; display: block; line-height: 1; }
+    .lang-flag { margin-bottom: 12px; display: block; }
     .lang-name { font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
     .lang-level { font-size: 12px; font-weight: 600; color: var(--accent); padding: 3px 12px; background: var(--accent-light); border-radius: 100px; display: inline-block; }
 
@@ -107,9 +107,37 @@
 
       <p class="block-title reveal">Langues</p>
       <div class="lang-grid">
-        <div class="lang-card reveal"><div class="lang-flag">🇫🇷</div><p class="lang-name">Français</p><span class="lang-level">Langue natale</span></div>
-        <div class="lang-card reveal"><div class="lang-flag">🇬🇧</div><p class="lang-name">Anglais</p><span class="lang-level">Niveau B2</span></div>
-        <div class="lang-card reveal"><div class="lang-flag">🇪🇸</div><p class="lang-name">Espagnol</p><span class="lang-level">Niveau B1/A2</span></div>
+        <div class="lang-card reveal">
+          <div class="lang-flag">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="64" height="43" style="border-radius:6px;display:block;margin:0 auto;">
+              <rect width="1" height="2" x="0" fill="#002395"/>
+              <rect width="1" height="2" x="1" fill="#fff"/>
+              <rect width="1" height="2" x="2" fill="#ED2939"/>
+            </svg>
+          </div>
+          <p class="lang-name">Français</p><span class="lang-level">Langue natale</span>
+        </div>
+        <div class="lang-card reveal">
+          <div class="lang-flag">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="64" height="43" style="border-radius:6px;display:block;margin:0 auto;">
+              <rect width="60" height="30" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+            </svg>
+          </div>
+          <p class="lang-name">Anglais</p><span class="lang-level">Niveau B2</span>
+        </div>
+        <div class="lang-card reveal">
+          <div class="lang-flag">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="64" height="43" style="border-radius:6px;display:block;margin:0 auto;">
+              <rect width="3" height="2" fill="#c60b1e"/>
+              <rect width="3" height="1" y="0.5" fill="#ffc400"/>
+            </svg>
+          </div>
+          <p class="lang-name">Espagnol</p><span class="lang-level">Niveau B1/A2</span>
+        </div>
       </div>
 
       <footer><p>Fait avec ❤️ par <a href="index.html">Arthur FORMENTIN</a> · 2025</p></footer>
