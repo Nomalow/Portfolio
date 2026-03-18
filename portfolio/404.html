@@ -31,7 +31,6 @@
       flex-direction: column;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 16px; left: 50%;
@@ -75,7 +74,6 @@
 
     nav a:hover { color: var(--text); background: var(--border); }
 
-    /* PAGE */
     .error-page {
       flex: 1;
       display: flex;
@@ -233,13 +231,13 @@
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
-    <a href="index.html">Accueil</a>
-    <a href="about.html">À propos</a>
-    <a href="skills.html">Skills</a>
-    <a href="projects.html">Projets</a>
-    <a href="parcours.html">Parcours</a>
-    <a href="contact.html">Contact</a>
+    <a href="#" class="nav-logo" data-page="index.html">P<span>.</span>N</a>
+    <a href="#" data-page="index.html">Accueil</a>
+    <a href="#" data-page="about.html">À propos</a>
+    <a href="#" data-page="skills.html">Skills</a>
+    <a href="#" data-page="projects.html">Projets</a>
+    <a href="#" data-page="parcours.html">Parcours</a>
+    <a href="#" data-page="contact.html">Contact</a>
   </nav>
 
   <div class="error-page">
@@ -254,28 +252,49 @@
       </p>
 
       <div class="error-actions">
-        <a href="index.html" class="btn btn-dark">← Retour à l'accueil</a>
-        <a href="contact.html" class="btn btn-light">Me contacter</a>
+        <a href="#" class="btn btn-dark" data-page="index.html">← Retour à l'accueil</a>
+        <a href="#" class="btn btn-light" data-page="contact.html">Me contacter</a>
       </div>
 
       <div class="error-divider"></div>
       <p class="error-nav-label">Ou explore le portfolio</p>
 
       <div class="quick-links">
-        <a href="about.html"    class="quick-link">👤 À propos</a>
-        <a href="skills.html"   class="quick-link">⚡ Skills</a>
-        <a href="projects.html" class="quick-link">🛠️ Projets</a>
-        <a href="certs.html"    class="quick-link">🏆 Certifications</a>
-        <a href="parcours.html" class="quick-link">🗺️ Parcours</a>
-        <a href="contact.html"  class="quick-link">✉️ Contact</a>
+        <a href="#" class="quick-link" data-page="about.html">👤 À propos</a>
+        <a href="#" class="quick-link" data-page="skills.html">⚡ Skills</a>
+        <a href="#" class="quick-link" data-page="projects.html">🛠️ Projets</a>
+        <a href="#" class="quick-link" data-page="certs.html">🏆 Certifications</a>
+        <a href="#" class="quick-link" data-page="parcours.html">🗺️ Parcours</a>
+        <a href="#" class="quick-link" data-page="contact.html">✉️ Contact</a>
       </div>
 
     </div>
   </div>
 
   <footer>
-    <p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p>
+    <p>Fait avec ❤️ par <a href="#" data-page="index.html">Prénom Nom</a> · 2025</p>
   </footer>
+
+  <script>
+    /**
+     * Détecte automatiquement la base du site (ex: /Portfolio/)
+     * et construit les bons chemins pour chaque lien.
+     * Fonctionne peu importe le nom du repo GitHub Pages.
+     */
+    (function () {
+      // Récupère le chemin de base = tout sauf le fichier courant
+      // Ex: /Portfolio/contact.html → base = /Portfolio/
+      const pathParts = window.location.pathname.split('/');
+      pathParts.pop(); // retire le fichier courant (404.html ou autre)
+      const base = pathParts.join('/') + '/';
+
+      // Applique le bon href à tous les liens avec data-page
+      document.querySelectorAll('[data-page]').forEach((link) => {
+        const page = link.getAttribute('data-page');
+        link.setAttribute('href', base + page);
+      });
+    })();
+  </script>
 
 </body>
 </html>
