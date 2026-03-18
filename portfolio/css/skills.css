@@ -1,0 +1,84 @@
+/* ── skills.css — styles propres à la page Compétences ── */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.skill-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: all 0.25s;
+}
+
+.skill-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.skill-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
+
+.skill-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Language proficiency bars */
+.lang-section { margin-bottom: 48px; }
+
+.lang-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.01em;
+}
+
+.lang-list   { display: flex; flex-direction: column; gap: 14px; }
+
+.lang-item {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.lang-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.lang-name { font-size: 14px; font-weight: 600; }
+.lang-pct  { font-size: 12px; font-weight: 600; color: var(--accent); }
+
+.lang-bar-bg {
+  height: 6px;
+  background: var(--light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.lang-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #60a5fa);
+  border-radius: 3px;
+  width: 0;
+  transition: width 1s ease 0.2s;
+}
+
+.lang-bar.animated { width: var(--target-width); }
+
+@media (max-width: 700px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}

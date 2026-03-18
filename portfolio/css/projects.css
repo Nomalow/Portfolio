@@ -1,0 +1,121 @@
+/* ── projects.css — styles propres à la page Projets ── */
+
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.filter-btn {
+  padding: 7px 16px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--text);
+  color: white;
+  border-color: var(--text);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.project-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.25s;
+}
+
+.project-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
+}
+
+.project-card.hidden { display: none; }
+
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.proj-ico {
+  width: 52px; height: 52px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+
+.proj-arrow {
+  color: var(--muted);
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.project-card:hover .proj-arrow {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.proj-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.proj-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.proj-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.proj-stack { display: flex; gap: 5px; flex-wrap: wrap; }
+
+.proj-status {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.status-done { background: var(--green-light); color: var(--green); }
+.status-wip  { background: #fef9c3; color: #a16207; }
+
+@media (max-width: 640px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}

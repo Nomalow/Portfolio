@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Projets</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
+    <a href="index.html">Accueil</a>
+    <a href="about.html">À propos</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html" class="active">Projets</a>
+    <a href="parcours.html">Parcours</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="page-wrapper">
+    <div class="container">
+
+      <div class="page-header reveal">
+        <p class="section-label">Projets</p>
+        <h1>Ce que j'ai construit</h1>
+        <p class="page-subtitle">Projets personnels, universitaires et professionnels. Cliquez pour voir le code.</p>
+      </div>
+
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="ia">IA</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <a href="#" class="project-card reveal" data-cat="web">
+          <div class="proj-top">
+            <div class="proj-ico">🛒</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">E-Commerce App</p>
+          <p class="proj-desc">Plateforme de vente en ligne avec gestion des stocks, paiement Stripe intégré et tableau de bord admin en temps réel.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">React</span>
+              <span class="stack-tag">Node.js</span>
+              <span class="stack-tag">MongoDB</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </a>
+
+        <a href="#" class="project-card reveal" data-cat="ia">
+          <div class="proj-top">
+            <div class="proj-ico">🤖</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Chatbot IA</p>
+          <p class="proj-desc">Assistant conversationnel qui répond aux questions sur une base de connaissances personnalisée grâce à un LLM.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">FastAPI</span>
+              <span class="stack-tag">OpenAI</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </a>
+
+        <a href="#" class="project-card reveal" data-cat="web">
+          <div class="proj-top">
+            <div class="proj-ico">📊</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Dashboard Analytics</p>
+          <p class="proj-desc">Tableau de bord interactif pour visualiser des métriques métier avec graphiques dynamiques et filtres avancés.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Vue.js</span>
+              <span class="stack-tag">D3.js</span>
+              <span class="stack-tag">PostgreSQL</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </a>
+
+        <a href="#" class="project-card reveal" data-cat="web">
+          <div class="proj-top">
+            <div class="proj-ico">🔐</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Auth System</p>
+          <p class="proj-desc">Système d'authentification sécurisé avec JWT, OAuth2, double authentification et gestion des rôles.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Express</span>
+              <span class="stack-tag">JWT</span>
+              <span class="stack-tag">Docker</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </a>
+
+        <a href="#" class="project-card reveal" data-cat="mobile">
+          <div class="proj-top">
+            <div class="proj-ico">📱</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">App Mobile Todo</p>
+          <p class="proj-desc">Application mobile de gestion de tâches avec synchronisation cloud, notifications et mode hors-ligne.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">React Native</span>
+              <span class="stack-tag">Firebase</span>
+            </div>
+            <span class="proj-status status-wip">⏳ En cours</span>
+          </div>
+        </a>
+
+        <a href="#" class="project-card reveal" data-cat="ia">
+          <div class="proj-top">
+            <div class="proj-ico">🔍</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Moteur de recommandation</p>
+          <p class="proj-desc">Algorithme de recommandation de contenu basé sur les préférences utilisateur avec filtrage collaboratif.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">scikit-learn</span>
+              <span class="stack-tag">Pandas</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </a>
+
+      </div>
+
+      <footer><p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p></footer>
+
+    </div>
+  </div>
+
+  <script type="module" src="js/projects.js"></script>
+</body>
+</html>

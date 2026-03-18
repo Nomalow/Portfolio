@@ -1,0 +1,97 @@
+/* ── parcours.css — styles propres à la page Parcours ── */
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 14px; bottom: 14px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+  border-radius: 1px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -39px; top: 22px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2.5px solid var(--accent);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+
+.tl-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  transition: all 0.25s;
+}
+
+.tl-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+  transform: translateX(4px);
+}
+
+.tl-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.tl-date {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.tl-type {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--light);
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.tl-role {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.tl-place {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.tl-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.tl-tags { display: flex; flex-wrap: wrap; gap: 6px; }
