@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Parcours</title>
+  <title>Arthur FORMENTIN — Parcours</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/parcours.css">
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
+    <a href="index.html" class="nav-logo">A<span>.</span>F</a>
     <a href="index.html">Accueil</a>
     <a href="about.html">À propos</a>
     <a href="skills.html">Skills</a>
@@ -28,105 +29,144 @@
         <p class="page-subtitle">Mon parcours académique et mes expériences professionnelles.</p>
       </div>
 
-      <div class="timeline">
+      <div class="timeline-wrapper">
 
-        <div class="timeline-item reveal">
-          <div class="tl-card">
-            <div class="tl-top">
-              <span class="tl-date">2023 — Présent</span>
-              <span class="tl-type">🎓 Formation</span>
+        <!-- ── COLONNE ÉCOLE ── -->
+        <div class="school-col">
+          <div class="timeline-col-header school reveal">
+            <div class="col-icon">🎓</div>
+            <span class="col-title">Formation</span>
+          </div>
+
+          <div class="timeline">
+
+            <div class="timeline-item reveal">
+              <div class="tl-card">
+                <div class="tl-top">
+                  <span class="tl-date">Sept. 2024 — Présent</span>
+                </div>
+                <p class="tl-role">BTS SIO — option SISR</p>
+                <p class="tl-place">🏛 CaenSup Sainte-Ursule — Caen</p>
+                <p class="tl-desc">Services Informatiques aux Organisations, option Solutions d'Infrastructure, Systèmes et Réseaux. Actuellement en 2e année en formation initiale.</p>
+                <div class="tl-tags">
+                  <span class="tag">Systèmes & Réseaux</span>
+                  <span class="tag">Cybersécurité</span>
+                  <span class="tag">Administration Linux</span>
+                  <span class="tag">Windows Server</span>
+                </div>
+              </div>
             </div>
-            <p class="tl-role">Master Informatique — IA & Systèmes</p>
-            <p class="tl-place">🏛 Université de Paris Cité</p>
-            <p class="tl-desc">Spécialisation en Intelligence Artificielle et architecture des systèmes distribués. Projets de recherche sur l'optimisation d'algorithmes d'apprentissage automatique. Major de promotion en M1.</p>
-            <div class="tl-tags">
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Systèmes distribués</span>
-              <span class="tag">Architectures logicielles</span>
+
+            <div class="timeline-item reveal">
+              <div class="tl-card">
+                <div class="tl-top">
+                  <span class="tl-date">Sept. 2022 — Juil. 2024</span>
+                </div>
+                <p class="tl-role">Baccalauréat Technologique STMG</p>
+                <p class="tl-place">🏫 Sainte-Ursule — Caen</p>
+                <p class="tl-desc">Option SIG (Systèmes d'Information et de Gestion). Première approche des systèmes d'information et de la gestion des données.</p>
+                <div class="tl-tags">
+                  <span class="tag">Systèmes d'information</span>
+                  <span class="tag">Gestion</span>
+                  <span class="tag">STMG</span>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
 
-        <div class="timeline-item reveal">
-          <div class="tl-card">
-            <div class="tl-top">
-              <span class="tl-date">Juin — Août 2023</span>
-              <span class="tl-type">💼 Stage</span>
-            </div>
-            <p class="tl-role">Développeur Full-Stack</p>
-            <p class="tl-place">🏢 StartupTech — Paris, 9e</p>
-            <p class="tl-desc">Développement de nouvelles fonctionnalités sur une plateforme SaaS B2B. Migration progressive vers une architecture microservices. Refactorisation du front-end en React avec TypeScript. Mise en place de tests unitaires et d'intégration.</p>
-            <div class="tl-tags">
-              <span class="tag">React</span>
-              <span class="tag">Node.js</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Docker</span>
-            </div>
+        <!-- ── COLONNE ENTREPRISE ── -->
+        <div class="work-col">
+          <div class="timeline-col-header work reveal">
+            <div class="col-icon">💼</div>
+            <span class="col-title">Expériences</span>
           </div>
-        </div>
 
-        <div class="timeline-item reveal">
-          <div class="tl-card">
-            <div class="tl-top">
-              <span class="tl-date">2020 — 2023</span>
-              <span class="tl-type">🎓 Formation</span>
-            </div>
-            <p class="tl-role">Licence Informatique</p>
-            <p class="tl-place">🏛 IUT de Paris — Rives de Seine</p>
-            <p class="tl-desc">Formation aux fondamentaux de l'informatique : algorithmique, structures de données, bases de données relationnelles, réseaux, développement web et mobile. Major de promotion — mention Très Bien.</p>
-            <div class="tl-tags">
-              <span class="tag">Algorithmique</span>
-              <span class="tag">Bases de données</span>
-              <span class="tag">Réseaux</span>
-              <span class="tag">Java</span>
-              <span class="tag">C</span>
-            </div>
-          </div>
-        </div>
+          <div class="timeline">
 
-        <div class="timeline-item reveal">
-          <div class="tl-card">
-            <div class="tl-top">
-              <span class="tl-date">Juin — Août 2022</span>
-              <span class="tl-type">💼 Stage</span>
+            <div class="timeline-item reveal">
+              <div class="tl-card">
+                <div class="tl-top">
+                  <span class="tl-date">Déc. 2025 — Fév. 2026</span>
+                </div>
+                <p class="tl-role">Stage — Administration Réseaux & Serveurs</p>
+                <p class="tl-place">🏢 DGFIP — Caen</p>
+                <p class="tl-desc">Configuration et supervision des équipements réseaux (Switchs). Administration des serveurs et support utilisateurs (gestion identités et accès). Maintien en condition opérationnelle du parc informatique. Observation de l'infrastructure et des enjeux de sécurité.</p>
+                <div class="tl-tags">
+                  <span class="tag">Réseau</span>
+                  <span class="tag">Switch</span>
+                  <span class="tag">Administration serveurs</span>
+                  <span class="tag">Support</span>
+                </div>
+              </div>
             </div>
-            <p class="tl-role">Développeur Junior</p>
-            <p class="tl-place">🏢 Agence Web Digital Studio — Paris</p>
-            <p class="tl-desc">Création et maintenance de sites web pour des clients PME. Intégration fidèle de maquettes Figma, optimisation des performances (Core Web Vitals) et mise en place du SEO technique.</p>
-            <div class="tl-tags">
-              <span class="tag">HTML/CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">WordPress</span>
-              <span class="tag">SEO</span>
-              <span class="tag">Figma</span>
-            </div>
-          </div>
-        </div>
 
-        <div class="timeline-item reveal">
-          <div class="tl-card">
-            <div class="tl-top">
-              <span class="tl-date">2020</span>
-              <span class="tl-type">🏫 Bac</span>
+            <div class="timeline-item reveal">
+              <div class="tl-card">
+                <div class="tl-top">
+                  <span class="tl-date">Mai — Juin 2025</span>
+                </div>
+                <p class="tl-role">Stage — Technicien Support</p>
+                <p class="tl-place">🏢 Nacre SI — Caen</p>
+                <p class="tl-desc">Administration Système sur Windows Server et Active Directory. Support technique N1/N2 auprès des utilisateurs. Masterisation et déploiement de nouveaux postes de travail (PC/Portables). Gestion complète du parc informatique.</p>
+                <div class="tl-tags">
+                  <span class="tag">Windows Server</span>
+                  <span class="tag">Active Directory</span>
+                  <span class="tag">Support N1/N2</span>
+                  <span class="tag">Déploiement</span>
+                </div>
+              </div>
             </div>
-            <p class="tl-role">Baccalauréat Général</p>
-            <p class="tl-place">🏫 Lycée Victor Hugo — Paris</p>
-            <p class="tl-desc">Spécialités Mathématiques et NSI (Numérique et Sciences Informatiques). Mention Très Bien avec félicitations du jury.</p>
-            <div class="tl-tags">
-              <span class="tag">Mathématiques</span>
-              <span class="tag">NSI</span>
-              <span class="tag">Mention TB</span>
+
+            <div class="timeline-item reveal">
+              <div class="tl-card">
+                <div class="tl-top">
+                  <span class="tl-date">Depuis Déc. 2025</span>
+                </div>
+                <p class="tl-role">Employé polyvalent</p>
+                <p class="tl-place">🏪 Carrefour Market — Courseulles-sur-Mer</p>
+                <p class="tl-desc">Poste en parallèle des études pour financer ma formation.</p>
+                <div class="tl-tags">
+                  <span class="tag">Commerce</span>
+                  <span class="tag">Polyvalence</span>
+                </div>
+              </div>
             </div>
+
+            <div class="timeline-item reveal">
+              <div class="tl-card">
+                <div class="tl-top">
+                  <span class="tl-date">Nov. 2024 — Juil. 2025</span>
+                </div>
+                <p class="tl-role">Employé polyvalent</p>
+                <p class="tl-place">🏪 Carrefour Market — Villers-Bocage</p>
+                <p class="tl-desc">Poste en parallèle des études pour financer ma formation.</p>
+                <div class="tl-tags">
+                  <span class="tag">Commerce</span>
+                  <span class="tag">Polyvalence</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
       </div>
 
-      <footer><p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p></footer>
-
+      <footer><p>Fait avec ❤️ par <a href="index.html">Arthur FORMENTIN</a> · 2025</p></footer>
     </div>
   </div>
 
-  <script type="module" src="js/parcours.js"></script>
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        setTimeout(() => e.target.classList.add('visible'), 100);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>

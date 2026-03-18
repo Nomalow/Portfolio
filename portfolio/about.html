@@ -3,14 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — À propos</title>
+  <title>Arthur FORMENTIN — À propos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/about.css">
+  <style>
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 48px; }
+    .about-text p { color: var(--muted); line-height: 1.85; margin-bottom: 14px; font-size: 15px; }
+    .about-text strong { color: var(--text); font-weight: 600; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 22px 20px; text-align: center; transition: all 0.2s; }
+    .stat-card:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-2px); }
+    .stat-num { font-family: 'Bricolage Grotesque', sans-serif; font-size: 36px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px; }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; }
+
+    .block-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.01em; }
+
+    .interests-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 48px; }
+    .interest-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 20px 16px; text-align: center; transition: all 0.2s; }
+    .interest-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+    .interest-ico { font-size: 28px; margin-bottom: 8px; }
+    .interest-label { font-size: 12px; font-weight: 600; }
+
+    .values-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 48px; }
+    .value-item { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 20px 24px; display: flex; align-items: center; gap: 16px; transition: all 0.2s; }
+    .value-item:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateX(4px); }
+    .value-ico { width: 42px; height: 42px; background: var(--accent-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .value-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .value-desc { font-size: 13px; color: var(--muted); }
+
+    .lang-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .lang-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .lang-flag { font-size: 28px; margin-bottom: 8px; }
+    .lang-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .lang-level { font-size: 12px; color: var(--muted); padding: 2px 10px; background: var(--light); border-radius: 6px; display: inline-block; }
+
+    @media (max-width: 700px) {
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .interests-grid { grid-template-columns: repeat(2, 1fr); }
+      .lang-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
+    <a href="index.html" class="nav-logo">A<span>.</span>F</a>
     <a href="index.html">Accueil</a>
     <a href="about.html" class="active">À propos</a>
     <a href="skills.html">Skills</a>
@@ -25,53 +63,68 @@
       <div class="page-header reveal">
         <p class="section-label">À propos</p>
         <h1>Qui suis-je ?</h1>
-        <p class="page-subtitle">Étudiant, développeur, et passionné de technologie basé à Paris.</p>
+        <p class="page-subtitle">Étudiant en BTS SIO SISR, passionné de systèmes, réseaux et cybersécurité. Basé à Caen.</p>
       </div>
 
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>Je suis étudiant en <strong>Master Informatique</strong> à l'Université de Paris Cité, spécialisé en développement full-stack et intelligence artificielle. Je suis curieux, autonome et j'aime résoudre des problèmes concrets avec du code.</p>
-          <p>Depuis mes premières lignes de code au lycée, j'ai toujours eu cette envie de construire des choses. Pas juste du code qui fonctionne — mais des produits qui ont de la valeur, bien pensés, accessibles et agréables à utiliser.</p>
-          <p>Je m'intéresse aussi beaucoup à l'<strong>open source</strong>, au design d'interfaces et à la veille technologique. Je lis, j'expérimente, je casse des trucs, et j'apprends de mes erreurs.</p>
-          <p>Je cherche actuellement une <strong>alternance ou un stage</strong> pour mettre mes compétences en pratique dans un contexte professionnel stimulant.</p>
+          <p>Je suis <strong>Arthur FORMENTIN</strong>, 20 ans, étudiant en <strong>BTS SIO option SISR</strong> à CaenSup Sainte-Ursule. Je me spécialise dans l'administration des systèmes et réseaux, avec un intérêt prononcé pour la <strong>cybersécurité</strong>.</p>
+          <p>J'ai acquis une expérience concrète lors de deux stages : l'un à la <strong>DGFIP de Caen</strong> où j'ai configuré des équipements réseau et administré des serveurs, et l'autre chez <strong>Nacre SI</strong> où j'ai assuré le support technique et la gestion du parc informatique.</p>
+          <p>Je pratique activement le <strong>hacking éthique</strong> sur Root Me (CTF) pour renforcer mes compétences offensives et défensives. Je recherche une <strong>alternance en tant qu'administrateur systèmes et réseaux</strong> pour la rentrée prochaine.</p>
         </div>
         <div class="about-stats reveal">
-          <div class="stat-card"><div class="stat-num">10<span>+</span></div><div class="stat-label">Projets réalisés</div></div>
-          <div class="stat-card"><div class="stat-num">4<span>+</span></div><div class="stat-label">Certifications</div></div>
-          <div class="stat-card"><div class="stat-num">2<span>ans</span></div><div class="stat-label">D'expérience</div></div>
-          <div class="stat-card"><div class="stat-num">5<span>+</span></div><div class="stat-label">Langages</div></div>
+          <div class="stat-card"><div class="stat-num">2<span>+</span></div><div class="stat-label">Stages réalisés</div></div>
+          <div class="stat-card"><div class="stat-num">2<span>+</span></div><div class="stat-label">Certifications</div></div>
+          <div class="stat-card"><div class="stat-num">20<span>ans</span></div><div class="stat-label">Caen, 14000</div></div>
+          <div class="stat-card"><div class="stat-num">3<span>+</span></div><div class="stat-label">Langues parlées</div></div>
         </div>
       </div>
 
       <p class="block-title reveal">Centres d'intérêt</p>
       <div class="interests-grid">
-        <div class="interest-card reveal"><div class="interest-ico">💻</div><div class="interest-label">Open Source</div></div>
-        <div class="interest-card reveal"><div class="interest-ico">🎨</div><div class="interest-label">UI/UX Design</div></div>
-        <div class="interest-card reveal"><div class="interest-ico">🤖</div><div class="interest-label">Intelligence Artificielle</div></div>
-        <div class="interest-card reveal"><div class="interest-ico">📚</div><div class="interest-label">Veille Tech</div></div>
+        <div class="interest-card reveal"><div class="interest-ico">🔐</div><div class="interest-label">Hacking Éthique</div></div>
+        <div class="interest-card reveal"><div class="interest-ico">🏋️</div><div class="interest-label">Musculation</div></div>
+        <div class="interest-card reveal"><div class="interest-ico">🚗</div><div class="interest-label">Automobile</div></div>
+        <div class="interest-card reveal"><div class="interest-ico">💻</div><div class="interest-label">Veille Informatique</div></div>
       </div>
 
-      <p class="block-title reveal">Ce qui me définit</p>
+      <p class="block-title reveal">Mes qualités</p>
       <div class="values-list">
         <div class="value-item reveal">
-          <div class="value-ico">🎯</div>
-          <div><p class="value-title">Orienté résultats</p><p class="value-desc">J'aime terminer ce que je commence et livrer un travail de qualité, même sous contrainte de temps.</p></div>
+          <div class="value-ico">🔍</div>
+          <div><p class="value-title">Curieux & autonome</p><p class="value-desc">Je fais de la veille informatique régulièrement et j'apprends constamment via des plateformes comme Root Me.</p></div>
         </div>
         <div class="value-item reveal">
-          <div class="value-ico">🔍</div>
-          <div><p class="value-title">Curieux & autonome</p><p class="value-desc">Je cherche toujours à comprendre comment les choses fonctionnent. La documentation et les expériences sont mes meilleurs amis.</p></div>
+          <div class="value-ico">🎯</div>
+          <div><p class="value-title">Rigoureux & esprit d'initiative</p><p class="value-desc">Gestion de projets et incidents IT : je suis attentif aux détails et je prends des initiatives pour résoudre les problèmes efficacement.</p></div>
         </div>
         <div class="value-item reveal">
           <div class="value-ico">🤝</div>
-          <div><p class="value-title">Esprit d'équipe</p><p class="value-desc">Je travaille bien en équipe, j'écoute, je partage et je m'adapte facilement à de nouveaux contextes.</p></div>
+          <div><p class="value-title">Esprit d'équipe</p><p class="value-desc">À l'aise en équipe, je m'adapte facilement aux environnements professionnels comme en témoignent mes expériences en stage.</p></div>
         </div>
       </div>
 
-      <footer><p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p></footer>
+      <p class="block-title reveal">Langues</p>
+      <div class="lang-grid">
+        <div class="lang-card reveal"><div class="lang-flag">🇫🇷</div><p class="lang-name">Français</p><span class="lang-level">Langue natale</span></div>
+        <div class="lang-card reveal"><div class="lang-flag">🇬🇧</div><p class="lang-name">Anglais</p><span class="lang-level">Niveau B2</span></div>
+        <div class="lang-card reveal"><div class="lang-flag">🇪🇸</div><p class="lang-name">Espagnol</p><span class="lang-level">Niveau B1/A2</span></div>
+      </div>
 
+      <footer><p>Fait avec ❤️ par <a href="index.html">Arthur FORMENTIN</a> · 2025</p></footer>
     </div>
   </div>
 
-  <script type="module" src="js/about.js"></script>
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const siblings = [...(e.target.parentElement?.querySelectorAll('.reveal') ?? [])];
+        setTimeout(() => e.target.classList.add('visible'), siblings.indexOf(e.target) * 70);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>

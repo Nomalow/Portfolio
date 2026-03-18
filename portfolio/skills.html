@@ -3,14 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Compétences</title>
+  <title>Arthur FORMENTIN — Compétences</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/skills.css">
+  <style>
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 48px; }
+    .skill-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 24px; transition: all 0.25s; }
+    .skill-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+    .skill-emoji { font-size: 28px; margin-bottom: 12px; display: block; }
+    .skill-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 6px; background: var(--light); color: var(--muted); }
+
+    .lang-section { margin-bottom: 48px; }
+    .lang-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.01em; }
+    .lang-list { display: flex; flex-direction: column; gap: 14px; }
+    .lang-item { background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; padding: 16px 20px; }
+    .lang-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .lang-name { font-size: 14px; font-weight: 600; }
+    .lang-pct { font-size: 12px; font-weight: 600; color: var(--accent); }
+    .lang-bar-bg { height: 6px; background: var(--light); border-radius: 3px; overflow: hidden; }
+    .lang-bar { height: 100%; background: linear-gradient(90deg, var(--accent), #60a5fa); border-radius: 3px; width: 0; transition: width 1s ease 0.2s; }
+    .lang-bar.animated { width: var(--target-width); }
+
+    @media (max-width: 700px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
+    <a href="index.html" class="nav-logo">A<span>.</span>F</a>
     <a href="index.html">Accueil</a>
     <a href="about.html">À propos</a>
     <a href="skills.html" class="active">Skills</a>
@@ -25,97 +47,112 @@
       <div class="page-header reveal">
         <p class="section-label">Compétences</p>
         <h1>Ce que je sais faire</h1>
-        <p class="page-subtitle">Un aperçu de mes technologies, outils et méthodes de travail.</p>
+        <p class="page-subtitle">Administration systèmes, réseaux, sécurité et virtualisation.</p>
       </div>
 
       <div class="skills-grid">
         <div class="skill-card reveal">
           <span class="skill-emoji">🖥️</span>
-          <p class="skill-title">Développement Frontend</p>
+          <p class="skill-title">Administration Système</p>
           <div class="skill-tags">
-            <span class="tag">React</span><span class="tag">Vue.js</span>
-            <span class="tag">TypeScript</span><span class="tag">HTML/CSS</span><span class="tag">Tailwind</span>
+            <span class="tag">Linux</span><span class="tag">Windows Server</span>
+            <span class="tag">Active Directory</span><span class="tag">LDAP</span>
+            <span class="tag">GPO</span><span class="tag">Postfix</span>
+            <span class="tag">LAMP</span><span class="tag">Samba</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <span class="skill-emoji">⚙️</span>
-          <p class="skill-title">Développement Backend</p>
+          <span class="skill-emoji">🌐</span>
+          <p class="skill-title">Réseau & Infrastructure</p>
           <div class="skill-tags">
-            <span class="tag">Node.js</span><span class="tag">Python</span>
-            <span class="tag">FastAPI</span><span class="tag">Express</span><span class="tag">REST API</span>
+            <span class="tag">Switch</span><span class="tag">Routeurs</span>
+            <span class="tag">NAT/PAT</span><span class="tag">DNS</span>
+            <span class="tag">Proxy Squid</span><span class="tag">FTP/FTPS</span>
+            <span class="tag">RAID 5</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <span class="skill-emoji">🗄️</span>
-          <p class="skill-title">Bases de données</p>
+          <span class="skill-emoji">🔒</span>
+          <p class="skill-title">Cybersécurité</p>
           <div class="skill-tags">
-            <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span>
-            <span class="tag">Redis</span><span class="tag">SQL</span>
+            <span class="tag">VPN</span><span class="tag">HTTPS/TLS</span>
+            <span class="tag">ACL</span><span class="tag">Port Security</span>
+            <span class="tag">TCP Intercept</span><span class="tag">Anti-DDoS</span>
+            <span class="tag">MITM</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <span class="skill-emoji">🚀</span>
-          <p class="skill-title">DevOps & Cloud</p>
+          <span class="skill-emoji">⚔️</span>
+          <p class="skill-title">Sécurité Offensive (Lab)</p>
           <div class="skill-tags">
-            <span class="tag">Docker</span><span class="tag">Git</span>
-            <span class="tag">CI/CD</span><span class="tag">AWS</span><span class="tag">Linux</span>
+            <span class="tag">CAM Overflow</span><span class="tag">MAC Spoofing</span>
+            <span class="tag">DHCP Starvation</span><span class="tag">Rogue DHCP</span>
+            <span class="tag">Root Me / CTF</span>
           </div>
         </div>
         <div class="skill-card reveal">
-          <span class="skill-emoji">🤖</span>
-          <p class="skill-title">Intelligence Artificielle</p>
+          <span class="skill-emoji">📦</span>
+          <p class="skill-title">Virtualisation</p>
           <div class="skill-tags">
-            <span class="tag">Machine Learning</span><span class="tag">scikit-learn</span>
-            <span class="tag">TensorFlow</span><span class="tag">NLP</span>
+            <span class="tag">Docker</span><span class="tag">VirtualBox</span>
+            <span class="tag">VMware</span>
           </div>
         </div>
         <div class="skill-card reveal">
           <span class="skill-emoji">🛠️</span>
-          <p class="skill-title">Outils & Méthodes</p>
+          <p class="skill-title">Support & Maintenance</p>
           <div class="skill-tags">
-            <span class="tag">Agile / Scrum</span><span class="tag">Figma</span>
-            <span class="tag">Jira</span><span class="tag">GitHub</span>
+            <span class="tag">Support N1/N2</span><span class="tag">Masterisation</span>
+            <span class="tag">Déploiement postes</span><span class="tag">Gestion de parc</span>
+            <span class="tag">Ticketing</span>
           </div>
         </div>
       </div>
 
       <div class="lang-section">
-        <p class="lang-title reveal">Maîtrise des langages</p>
+        <p class="lang-title reveal">Niveau de maîtrise</p>
         <div class="lang-list">
-
           <div class="lang-item reveal">
-            <div class="lang-top"><span class="lang-name">JavaScript / TypeScript</span><span class="lang-pct">90%</span></div>
-            <div class="lang-bar-bg"><div class="lang-bar" data-width="90%"></div></div>
-          </div>
-
-          <div class="lang-item reveal">
-            <div class="lang-top"><span class="lang-name">Python</span><span class="lang-pct">85%</span></div>
+            <div class="lang-top"><span class="lang-name">Linux & Administration Système</span><span class="lang-pct">85%</span></div>
             <div class="lang-bar-bg"><div class="lang-bar" data-width="85%"></div></div>
           </div>
-
           <div class="lang-item reveal">
-            <div class="lang-top"><span class="lang-name">Java</span><span class="lang-pct">70%</span></div>
-            <div class="lang-bar-bg"><div class="lang-bar" data-width="70%"></div></div>
-          </div>
-
-          <div class="lang-item reveal">
-            <div class="lang-top"><span class="lang-name">C / C++</span><span class="lang-pct">60%</span></div>
-            <div class="lang-bar-bg"><div class="lang-bar" data-width="60%"></div></div>
-          </div>
-
-          <div class="lang-item reveal">
-            <div class="lang-top"><span class="lang-name">SQL</span><span class="lang-pct">80%</span></div>
+            <div class="lang-top"><span class="lang-name">Réseaux & Infrastructure</span><span class="lang-pct">80%</span></div>
             <div class="lang-bar-bg"><div class="lang-bar" data-width="80%"></div></div>
           </div>
-
+          <div class="lang-item reveal">
+            <div class="lang-top"><span class="lang-name">Windows Server & Active Directory</span><span class="lang-pct">75%</span></div>
+            <div class="lang-bar-bg"><div class="lang-bar" data-width="75%"></div></div>
+          </div>
+          <div class="lang-item reveal">
+            <div class="lang-top"><span class="lang-name">Cybersécurité</span><span class="lang-pct">70%</span></div>
+            <div class="lang-bar-bg"><div class="lang-bar" data-width="70%"></div></div>
+          </div>
+          <div class="lang-item reveal">
+            <div class="lang-top"><span class="lang-name">Docker & Virtualisation</span><span class="lang-pct">65%</span></div>
+            <div class="lang-bar-bg"><div class="lang-bar" data-width="65%"></div></div>
+          </div>
         </div>
       </div>
 
-      <footer><p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p></footer>
-
+      <footer><p>Fait avec ❤️ par <a href="index.html">Arthur FORMENTIN</a> · 2025</p></footer>
     </div>
   </div>
 
-  <script type="module" src="js/skills.js"></script>
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const siblings = [...(e.target.parentElement?.querySelectorAll('.reveal') ?? [])];
+        setTimeout(() => e.target.classList.add('visible'), siblings.indexOf(e.target) * 70);
+        obs.unobserve(e.target);
+        e.target.querySelectorAll('.lang-bar').forEach(b => {
+          b.style.setProperty('--target-width', b.dataset.width);
+          b.classList.add('animated');
+        });
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>

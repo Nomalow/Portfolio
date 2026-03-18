@@ -3,14 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Certifications</title>
+  <title>Arthur FORMENTIN — Certifications</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/certs.css">
+  <style>
+    .certs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 48px; }
+    .cert-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 24px; display: flex; align-items: center; gap: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
+    .cert-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); transform: translateY(-3px); }
+    .cert-icon { width: 52px; height: 52px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+    .cert-info { flex: 1; }
+    .cert-name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .cert-issuer { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .cert-badge-row { display: flex; gap: 6px; flex-wrap: wrap; }
+    .cert-year { font-size: 11px; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 3px 9px; border-radius: 6px; }
+    .cert-level { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 6px; background: var(--green-light); color: var(--green); }
+    .cert-arrow { color: var(--muted); font-size: 16px; transition: all 0.2s; flex-shrink: 0; margin-left: 8px; }
+    .cert-card:hover .cert-arrow { color: var(--accent); transform: translate(3px, -3px); }
+
+    .inprog-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 20px; letter-spacing: -0.01em; }
+    .inprog-list { display: flex; flex-direction: column; gap: 12px; }
+    .inprog-item { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 20px 24px; display: flex; align-items: center; gap: 16px; }
+    .inprog-ico { width: 44px; height: 44px; background: #fef9c3; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .inprog-info { flex: 1; }
+    .inprog-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .inprog-sub { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .progress-bar-bg { height: 5px; background: var(--light); border-radius: 3px; overflow: hidden; }
+    .progress-bar { height: 100%; background: linear-gradient(90deg, #f59e0b, #fcd34d); border-radius: 3px; width: 0; transition: width 1s ease 0.2s; }
+    .progress-bar.animated { width: var(--target-width); }
+    .inprog-pct { font-size: 12px; font-weight: 600; color: #a16207; background: #fef9c3; padding: 4px 10px; border-radius: 6px; flex-shrink: 0; }
+
+    @media (max-width: 640px) { .certs-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
+    <a href="index.html" class="nav-logo">A<span>.</span>F</a>
     <a href="index.html">Accueil</a>
     <a href="about.html">À propos</a>
     <a href="skills.html">Skills</a>
@@ -25,99 +53,77 @@
       <div class="page-header reveal">
         <p class="section-label">Certifications</p>
         <h1>Diplômes & certifications</h1>
-        <p class="page-subtitle">Les certifications que j'ai obtenues et celles en cours de préparation.</p>
+        <p class="page-subtitle">Les certifications obtenues et celles en cours de préparation.</p>
       </div>
 
       <div class="certs-grid">
-
-        <a href="#" target="_blank" class="cert-card reveal">
-          <div class="cert-icon">☁️</div>
+        <a href="https://secnumacademie.gouv.fr" target="_blank" class="cert-card reveal">
+          <div class="cert-icon">🔐</div>
           <div class="cert-info">
-            <p class="cert-name">AWS Cloud Practitioner</p>
-            <p class="cert-issuer">Amazon Web Services</p>
+            <p class="cert-name">SecNumAcadémie</p>
+            <p class="cert-issuer">ANSSI — Agence Nationale de la Sécurité des SI</p>
             <div class="cert-badge-row">
               <span class="cert-year">2024</span>
-              <span class="cert-level">✓ Obtenu</span>
+              <span class="cert-level">✓ Attestation obtenue</span>
             </div>
           </div>
           <span class="cert-arrow">↗</span>
         </a>
 
-        <a href="#" target="_blank" class="cert-card reveal">
-          <div class="cert-icon">🐍</div>
+        <a href="https://www.root-me.org" target="_blank" class="cert-card reveal">
+          <div class="cert-icon">⚔️</div>
           <div class="cert-info">
-            <p class="cert-name">Python Professional Certificate</p>
-            <p class="cert-issuer">Coursera — Google</p>
+            <p class="cert-name">Root Me — Hacking Éthique</p>
+            <p class="cert-issuer">Root Me Platform</p>
             <div class="cert-badge-row">
-              <span class="cert-year">2023</span>
-              <span class="cert-level">✓ Obtenu</span>
+              <span class="cert-year">2024</span>
+              <span class="cert-level">✓ Actif</span>
             </div>
           </div>
           <span class="cert-arrow">↗</span>
         </a>
-
-        <a href="#" target="_blank" class="cert-card reveal">
-          <div class="cert-icon">🔒</div>
-          <div class="cert-info">
-            <p class="cert-name">Cybersécurité — Fondamentaux</p>
-            <p class="cert-issuer">ANSSI / OpenClassrooms</p>
-            <div class="cert-badge-row">
-              <span class="cert-year">2023</span>
-              <span class="cert-level">✓ Obtenu</span>
-            </div>
-          </div>
-          <span class="cert-arrow">↗</span>
-        </a>
-
-        <a href="#" target="_blank" class="cert-card reveal">
-          <div class="cert-icon">🎨</div>
-          <div class="cert-info">
-            <p class="cert-name">Frontend Developer Certificate</p>
-            <p class="cert-issuer">freeCodeCamp</p>
-            <div class="cert-badge-row">
-              <span class="cert-year">2022</span>
-              <span class="cert-level">✓ Obtenu</span>
-            </div>
-          </div>
-          <span class="cert-arrow">↗</span>
-        </a>
-
       </div>
 
       <p class="inprog-title reveal">En cours de préparation</p>
       <div class="inprog-list">
-
         <div class="inprog-item reveal">
-          <div class="inprog-ico">☁️</div>
+          <div class="inprog-ico">🛡️</div>
           <div class="inprog-info">
-            <p class="inprog-name">AWS Solutions Architect — Associate</p>
-            <p class="inprog-sub">Amazon Web Services</p>
-            <div class="progress-bar-bg">
-              <div class="progress-bar" data-width="65%"></div>
-            </div>
-          </div>
-          <span class="inprog-pct">65%</span>
-        </div>
-
-        <div class="inprog-item reveal">
-          <div class="inprog-ico">🤖</div>
-          <div class="inprog-info">
-            <p class="inprog-name">TensorFlow Developer Certificate</p>
-            <p class="inprog-sub">Google</p>
-            <div class="progress-bar-bg">
-              <div class="progress-bar" data-width="40%"></div>
-            </div>
+            <p class="inprog-name">CompTIA Security+</p>
+            <p class="inprog-sub">CompTIA — Cybersécurité fondamentaux</p>
+            <div class="progress-bar-bg"><div class="progress-bar" data-width="40%"></div></div>
           </div>
           <span class="inprog-pct">40%</span>
         </div>
-
+        <div class="inprog-item reveal">
+          <div class="inprog-ico">🌐</div>
+          <div class="inprog-info">
+            <p class="inprog-name">Cisco CCNA</p>
+            <p class="inprog-sub">Cisco — Réseaux & Infrastructure</p>
+            <div class="progress-bar-bg"><div class="progress-bar" data-width="30%"></div></div>
+          </div>
+          <span class="inprog-pct">30%</span>
+        </div>
       </div>
 
-      <footer><p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p></footer>
-
+      <footer><p>Fait avec ❤️ par <a href="index.html">Arthur FORMENTIN</a> · 2025</p></footer>
     </div>
   </div>
 
-  <script type="module" src="js/certs.js"></script>
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const siblings = [...(e.target.parentElement?.querySelectorAll('.reveal') ?? [])];
+        setTimeout(() => e.target.classList.add('visible'), siblings.indexOf(e.target) * 80);
+        obs.unobserve(e.target);
+        e.target.querySelectorAll('.progress-bar').forEach(b => {
+          b.style.setProperty('--target-width', b.dataset.width);
+          b.classList.add('animated');
+        });
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
 </body>
 </html>

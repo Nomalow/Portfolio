@@ -3,14 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Contact</title>
+  <title>Arthur FORMENTIN — Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/contact.css">
+  <style>
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .contact-left p { font-size: 15px; color: var(--muted); line-height: 1.8; margin-bottom: 32px; }
+    .contact-links { display: flex; flex-direction: column; gap: 10px; }
+    .contact-btn { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 1.5px solid var(--border); border-radius: var(--radius); background: var(--white); color: var(--text); text-decoration: none; transition: all 0.25s; }
+    .contact-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateX(4px); box-shadow: var(--shadow); }
+    .contact-btn.cv-btn { background: var(--text); color: white; border-color: var(--text); }
+    .contact-btn.cv-btn:hover { background: #333; border-color: #333; color: white; box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .contact-btn-ico { width: 40px; height: 40px; background: var(--bg); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .cv-btn .contact-btn-ico { background: rgba(255,255,255,0.15); }
+    .contact-btn-text { flex: 1; }
+    .contact-btn-text strong { display: block; font-size: 14px; font-weight: 600; }
+    .contact-btn-text span { font-size: 12px; opacity: 0.7; }
+    .contact-btn-arrow { font-size: 16px; opacity: 0.5; transition: all 0.2s; }
+    .contact-btn:hover .contact-btn-arrow { opacity: 1; transform: translateX(3px); }
+
+    .availability-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 20px; }
+    .avail-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .avail-dot { width: 10px; height: 10px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(22,163,74,0.4); } 50% { box-shadow: 0 0 0 6px rgba(22,163,74,0); } }
+    .avail-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 16px; font-weight: 700; }
+    .avail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .avail-item { background: var(--bg); border-radius: 10px; padding: 12px; }
+    .avail-label { font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 3px; }
+    .avail-value { font-size: 13px; font-weight: 600; }
+
+    .form-card { background: var(--white); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .form-title { font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 11px 14px; background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text); outline: none; resize: none; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); background: var(--white); }
+    .form-group textarea { height: 100px; }
+    .form-submit { width: 100%; padding: 13px; background: var(--text); color: white; border: none; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+    .form-submit:hover { background: #333; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,0.2); }
+    .form-submit.success { background: var(--green); }
+
+    @media (max-width: 700px) { .contact-wrapper { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
   <nav>
-    <a href="index.html" class="nav-logo">P<span>.</span>N</a>
+    <a href="index.html" class="nav-logo">A<span>.</span>F</a>
     <a href="index.html">Accueil</a>
     <a href="about.html">À propos</a>
     <a href="skills.html">Skills</a>
@@ -25,101 +64,72 @@
       <div class="page-header reveal">
         <p class="section-label">Contact</p>
         <h1>Travaillons ensemble 🤝</h1>
-        <p class="page-subtitle">Disponible pour un stage, une alternance ou un projet freelance.</p>
+        <p class="page-subtitle">Disponible pour une alternance en administration systèmes & réseaux.</p>
       </div>
 
       <div class="contact-wrapper">
 
-        <!-- Colonne gauche : liens -->
         <div class="contact-left reveal">
-          <p>N'hésitez pas à me contacter pour discuter d'une opportunité, d'un projet ou simplement pour échanger ! Je réponds généralement sous 24h.</p>
+          <p>N'hésitez pas à me contacter pour discuter d'une opportunité d'alternance ou d'un projet. Je réponds généralement sous 24h.</p>
 
           <div class="contact-links">
-
-            <a href="https://github.com/votre-pseudo" target="_blank" class="contact-btn">
+            <a href="https://linkedin.com/in/arthur-formentin" target="_blank" class="contact-btn">
               <div class="contact-btn-ico">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                </svg>
-              </div>
-              <div class="contact-btn-text">
-                <strong>GitHub</strong>
-                <span>github.com/votre-pseudo</span>
-              </div>
-              <span class="contact-btn-arrow">→</span>
-            </a>
-
-            <a href="https://linkedin.com/in/votre-pseudo" target="_blank" class="contact-btn">
-              <div class="contact-btn-ico">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </div>
               <div class="contact-btn-text">
                 <strong>LinkedIn</strong>
-                <span>linkedin.com/in/votre-pseudo</span>
+                <span>@Arthur FORMENTIN</span>
               </div>
               <span class="contact-btn-arrow">→</span>
             </a>
 
-            <a href="mailto:prenom.nom@email.com" class="contact-btn">
+            <a href="mailto:arthur.formentin@sts-siocaen.info" class="contact-btn">
               <div class="contact-btn-ico">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="4" width="20" height="16" rx="2"/>
-                  <path d="M2 7l10 7 10-7"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
               </div>
               <div class="contact-btn-text">
                 <strong>Email</strong>
-                <span>prenom.nom@email.com</span>
+                <span>arthur.formentin@sts-siocaen.info</span>
               </div>
               <span class="contact-btn-arrow">→</span>
             </a>
 
-            <a href="cv.pdf" download class="contact-btn cv-btn">
+            <a href="tel:0771942227" class="contact-btn">
               <div class="contact-btn-ico">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="12" y1="18" x2="12" y2="12"/>
-                  <line x1="9" y1="15" x2="15" y2="15"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.29 6.29l.95-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="contact-btn-text">
+                <strong>Téléphone</strong>
+                <span>07 71 94 22 27</span>
+              </div>
+              <span class="contact-btn-arrow">→</span>
+            </a>
+
+            <a href="CV_Arthur_FORMENTIN.pdf" download class="contact-btn cv-btn">
+              <div class="contact-btn-ico">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
               </div>
               <div class="contact-btn-text">
                 <strong>Télécharger mon CV</strong>
-                <span>Format PDF · Mis à jour 2025</span>
+                <span>Format PDF · Mars 2026</span>
               </div>
               <span class="contact-btn-arrow">↓</span>
             </a>
-
           </div>
         </div>
 
-        <!-- Colonne droite : dispo + formulaire -->
         <div class="contact-right">
-
           <div class="availability-card reveal">
             <div class="avail-header">
               <div class="avail-dot"></div>
               <p class="avail-title">Disponibilité actuelle</p>
             </div>
             <div class="avail-grid">
-              <div class="avail-item">
-                <p class="avail-label">Type de poste</p>
-                <p class="avail-value">Stage / Alternance</p>
-              </div>
-              <div class="avail-item">
-                <p class="avail-label">Durée souhaitée</p>
-                <p class="avail-value">6 mois minimum</p>
-              </div>
-              <div class="avail-item">
-                <p class="avail-label">Disponible à partir de</p>
-                <p class="avail-value">Septembre 2025</p>
-              </div>
-              <div class="avail-item">
-                <p class="avail-label">Localisation</p>
-                <p class="avail-value">Paris / Remote</p>
-              </div>
+              <div class="avail-item"><p class="avail-label">Type de poste</p><p class="avail-value">Alternance</p></div>
+              <div class="avail-item"><p class="avail-label">Poste recherché</p><p class="avail-value">Admin. Sys & Réseaux</p></div>
+              <div class="avail-item"><p class="avail-label">Disponible à partir de</p><p class="avail-value">Rentrée 2026</p></div>
+              <div class="avail-item"><p class="avail-label">Localisation</p><p class="avail-value">Caen (14000)</p></div>
             </div>
           </div>
 
@@ -132,25 +142,47 @@
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input id="email" type="email" placeholder="jean@exemple.com" required>
+                <input id="email" type="email" placeholder="jean@entreprise.com" required>
               </div>
               <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" placeholder="Bonjour, je souhaite discuter d'une opportunité..." required></textarea>
+                <textarea id="message" placeholder="Bonjour, je souhaite vous proposer une alternance…" required></textarea>
               </div>
               <button type="submit" class="form-submit">Envoyer le message →</button>
             </form>
           </div>
-
         </div>
 
       </div>
 
-      <footer><p>Fait avec ❤️ par <a href="index.html">Prénom Nom</a> · 2025</p></footer>
-
+      <footer><p>Fait avec ❤️ par <a href="index.html">Arthur FORMENTIN</a> · 2025</p></footer>
     </div>
   </div>
 
-  <script type="module" src="js/contact.js"></script>
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const siblings = [...(e.target.parentElement?.querySelectorAll('.reveal') ?? [])];
+        setTimeout(() => e.target.classList.add('visible'), siblings.indexOf(e.target) * 100);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = document.querySelector('.form-submit');
+      btn.textContent = '✓ Message envoyé !';
+      btn.classList.add('success');
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Envoyer le message →';
+        btn.classList.remove('success');
+        btn.disabled = false;
+        this.reset();
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
