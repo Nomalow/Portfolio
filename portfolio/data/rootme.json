@@ -4,6 +4,73 @@
   "points": null,
   "rank": null,
   "challenges": null,
-  "domains": [],
-  "updated_at": null
+  "domains": [
+    {
+      "name": "App - Script",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "App - Système",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Cracking",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Cryptanalyse",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Forensic",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Programmation",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Réaliste",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Réseau",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Stéganographie",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Web - Client",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    },
+    {
+      "name": "Web - Serveur",
+      "solved": 0,
+      "total": 0,
+      "percent": 0
+    }
+  ],
+  "updated_at": "2026-04-29T07:10:28.350705+00:00"
 }
