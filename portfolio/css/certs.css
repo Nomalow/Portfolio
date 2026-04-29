@@ -1,10 +1,11 @@
 /* ── certs.css — styles propres à la page Certifications ── */
 
+/* ─── Cartes certifications ────────────────────────────────────────── */
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 14px;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 
 .cert-card {
@@ -73,67 +74,167 @@
   transform: translate(3px, -3px);
 }
 
-/* In progress section */
-.inprog-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  letter-spacing: -0.01em;
-}
-
-.inprog-list { display: flex; flex-direction: column; gap: 12px; }
-
-.inprog-item {
+/* ─── Section Root Me Live ─────────────────────────────────────────── */
+.rootme-section {
   background: var(--white);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
-  padding: 20px 24px;
+  padding: 32px;
+  margin-bottom: 48px;
+}
+
+.rootme-header {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
   gap: 16px;
+  margin-bottom: 28px;
 }
 
-.inprog-ico {
-  width: 44px; height: 44px;
-  background: #fef9c3;
+.rootme-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 4px;
+}
+
+.rootme-pseudo {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.rootme-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1.5px solid var(--accent);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.rootme-link:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+/* Cartes de stats globales */
+.rootme-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.rootme-stat {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
   border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
+  padding: 18px 20px;
+  text-align: center;
 }
 
-.inprog-info    { flex: 1; }
-.inprog-name    { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-.inprog-sub     { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.rootme-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
 
-.progress-bar-bg {
-  height: 5px;
+.rootme-stat-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+/* Liste des domaines */
+.domains-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.domains-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.domains-loading {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.domain-item {
+  display: grid;
+  grid-template-columns: 140px 1fr 90px;
+  align-items: center;
+  gap: 14px;
+}
+
+.domain-name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.domain-bar-bg {
+  height: 8px;
   background: var(--light);
-  border-radius: 3px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
-.progress-bar {
+.domain-bar {
   height: 100%;
-  background: linear-gradient(90deg, #f59e0b, #fcd34d);
-  border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), #818cf8);
+  border-radius: 4px;
   width: 0;
-  transition: width 1s ease 0.2s;
+  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.progress-bar.animated { width: var(--target-width); }
+.domain-bar.animated { width: var(--target-width); }
 
-.inprog-pct {
+.domain-pct {
   font-size: 12px;
   font-weight: 600;
-  color: #a16207;
-  background: #fef9c3;
-  padding: 4px 10px;
-  border-radius: 6px;
-  flex-shrink: 0;
+  text-align: right;
+  color: var(--muted);
+}
+
+.domain-pct strong {
+  color: var(--text, #111);
+  font-weight: 700;
+}
+
+.rootme-updated {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+  font-style: italic;
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .rootme-stats        { grid-template-columns: 1fr; }
+  .domain-item         { grid-template-columns: 100px 1fr 60px; gap: 10px; }
+  .domain-name         { font-size: 12px; }
 }
 
 @media (max-width: 640px) {
-  .certs-grid { grid-template-columns: 1fr; }
+  .certs-grid          { grid-template-columns: 1fr; }
+  .rootme-section      { padding: 24px; }
+  .rootme-title        { font-size: 22px; }
 }
