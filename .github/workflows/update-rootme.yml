@@ -1,0 +1,43 @@
+name: Update Root Me stats
+
+# Tourne automatiquement toutes les 6h, et peut aussi être lancé à la main
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # toutes les 6 heures
+  workflow_dispatch:         # permet le lancement manuel depuis l'onglet Actions
+
+# Permet au workflow de commit / push sur le repo
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: portfolio   # tout se passe dans le sous-dossier portfolio/
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run scraper
+        run: python scripts/fetch_rootme.py
+
+      - name: Commit & push if changed
+        # On revient à la racine pour git add le bon chemin
+        working-directory: .
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add portfolio/data/rootme.json
+          git diff --staged --quiet || git commit -m "chore: update rootme stats [skip ci]"
+          git push
