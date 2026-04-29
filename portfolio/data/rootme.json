@@ -8,69 +8,69 @@
     {
       "name": "App - Script",
       "solved": 0,
-      "total": 85,
+      "total": 62,
       "percent": 0.0
     },
     {
       "name": "App - Système",
       "solved": 0,
-      "total": 88,
+      "total": 70,
       "percent": 0.0
     },
     {
       "name": "Cracking",
       "solved": 0,
-      "total": 58,
+      "total": 29,
       "percent": 0.0
     },
     {
       "name": "Cryptanalyse",
       "solved": 0,
-      "total": 75,
-      "percent": 0.0
+      "total": 0,
+      "percent": 0
     },
     {
       "name": "Forensic",
-      "solved": 15,
-      "total": 30,
-      "percent": 50.0
+      "solved": 0,
+      "total": 0,
+      "percent": 0
     },
     {
       "name": "Programmation",
       "solved": 0,
-      "total": 31,
+      "total": 75,
       "percent": 0.0
     },
     {
       "name": "Réaliste",
       "solved": 0,
-      "total": 12,
+      "total": 24,
       "percent": 0.0
     },
     {
       "name": "Réseau",
-      "solved": 0,
-      "total": 48,
-      "percent": 0.0
+      "solved": 15,
+      "total": 35,
+      "percent": 42.9
     },
     {
       "name": "Stéganographie",
       "solved": 0,
-      "total": 22,
-      "percent": 0.0
+      "total": 0,
+      "percent": 0
     },
     {
       "name": "Web - Client",
       "solved": 8,
-      "total": 36,
-      "percent": 22.2
+      "total": 42,
+      "percent": 19.0
     },
     {
       "name": "Web - Serveur",
       "solved": 1,
-      "total": 87,
-      "percent": 1.1
+      "total": 97,
+      "percent": 1.0
     }
   ],
-  "updated_at": "2026-04-29T08:32:31.224141+00:00"
+  "updated_at": "2026-04-29T08:42:07.802233+00:00"
 }
