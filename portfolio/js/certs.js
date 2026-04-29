@@ -6,6 +6,7 @@
  *  2. Récupérer les stats Root Me depuis data/rootme.json
  *     (mis à jour automatiquement toutes les 6h par GitHub Actions)
  *  3. Afficher les stats globales + barres de progression par domaine
+ *     (uniquement les domaines où l'utilisateur a au moins 1 challenge validé)
  */
 import { initReveal } from './main.js';
 
@@ -57,7 +58,15 @@ function renderDomains(domains) {
     return;
   }
 
-  list.innerHTML = domains.map((d) => `
+  // On ne garde que les domaines où l'utilisateur a fait au moins 1 challenge
+  const activeDomains = domains.filter((d) => d.solved > 0);
+
+  if (activeDomains.length === 0) {
+    list.innerHTML = '<p class="domains-loading">Aucun challenge validé pour le moment.</p>';
+    return;
+  }
+
+  list.innerHTML = activeDomains.map((d) => `
     <div class="domain-item">
       <span class="domain-name">${d.name}</span>
       <div class="domain-bar-bg">
