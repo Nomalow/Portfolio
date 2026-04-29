@@ -1,33 +1,33 @@
 {
   "username": "Nomalow",
   "profile_url": "https://www.root-me.org/Nomalow?lang=fr",
-  "points": null,
-  "rank": null,
-  "challenges": null,
+  "points": 300,
+  "rank": 56053,
+  "challenges": 24,
   "domains": [
     {
       "name": "App - Script",
       "solved": 0,
-      "total": 0,
-      "percent": 0
+      "total": 608,
+      "percent": 0.0
     },
     {
       "name": "App - Système",
       "solved": 0,
-      "total": 0,
-      "percent": 0
+      "total": 608,
+      "percent": 0.0
     },
     {
       "name": "Cracking",
       "solved": 0,
-      "total": 0,
-      "percent": 0
+      "total": 608,
+      "percent": 0.0
     },
     {
       "name": "Cryptanalyse",
       "solved": 0,
-      "total": 0,
-      "percent": 0
+      "total": 450,
+      "percent": 0.0
     },
     {
       "name": "Forensic",
@@ -72,5 +72,5 @@
       "percent": 0
     }
   ],
-  "updated_at": "2026-04-29T07:10:28.350705+00:00"
+  "updated_at": "2026-04-29T07:32:20.600992+00:00"
 }
