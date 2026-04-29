@@ -3,7 +3,7 @@
   "profile_url": "https://www.root-me.org/Nomalow?lang=fr",
   "points": 300,
   "rank": 56053,
-  "challenges": 0,
+  "challenges": 24,
   "domains": [
     {
       "name": "App - Script",
@@ -31,9 +31,9 @@
     },
     {
       "name": "Forensic",
-      "solved": 0,
+      "solved": 15,
       "total": 30,
-      "percent": 0.0
+      "percent": 50.0
     },
     {
       "name": "Programmation",
@@ -61,16 +61,16 @@
     },
     {
       "name": "Web - Client",
-      "solved": 0,
+      "solved": 8,
       "total": 36,
-      "percent": 0.0
+      "percent": 22.2
     },
     {
       "name": "Web - Serveur",
-      "solved": 0,
+      "solved": 1,
       "total": 87,
-      "percent": 0.0
+      "percent": 1.1
     }
   ],
-  "updated_at": "2026-04-29T07:49:23.714858+00:00"
+  "updated_at": "2026-04-29T08:20:56.234217+00:00"
 }
