@@ -1,26 +1,21 @@
 """
 fetch_rootme.py — Récupère les stats Root Me d'Arthur (Nomalow).
 
-Format réel découvert grâce au diagnostic :
-  /auteurs/{id} → dict avec :
-    - score, position : strings/ints
-    - validations : liste d'objets {id_challenge, titre, id_rubrique, date}
-    - challenges, solutions : listes vides chez nous
-
-Le domaine se déduit de id_rubrique (pas de l'URL).
+Cette version groupe les challenges par id_rubrique et affiche les
+titres associés, pour permettre de vérifier le mapping.
 """
 
 import json
 import os
 import sys
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
 
-# ─── CONFIG ────────────────────────────────────────────────────────────────────
 USERNAME    = "Nomalow"
-USER_ID     = 1006965  # connu, on évite une requête inutile
+USER_ID     = 1006965
 API_BASE    = "https://api.www.root-me.org"
 OUTPUT_FILE = Path("data/rootme.json")
 TIMEOUT     = 20
@@ -33,8 +28,7 @@ if not API_KEY:
 COOKIES = {"api_key": API_KEY}
 HEADERS = {"User-Agent": "Nomalow-Portfolio/1.0", "Accept": "application/json"}
 
-# ─── MAPPING id_rubrique → domaine ─────────────────────────────────────────────
-# Source : structure officielle des rubriques Root Me
+# Mapping id_rubrique → domaine (à corriger si nécessaire)
 RUBRIQUE_TO_DOMAIN = {
     "16": "Web - Client",
     "17": "Cracking",
@@ -55,23 +49,14 @@ DOMAINS_DISPLAY = [
     "Stéganographie", "Web - Client",  "Web - Serveur",
 ]
 
-# Totaux par domaine — ajustables manuellement
 DOMAIN_TOTALS = {
-    "App - Script":   85,
-    "App - Système":  88,
-    "Cracking":       58,
-    "Cryptanalyse":   75,
-    "Forensic":       30,
-    "Programmation":  31,
-    "Réaliste":       12,
-    "Réseau":         48,
-    "Stéganographie": 22,
-    "Web - Client":   36,
-    "Web - Serveur":  87,
+    "App - Script": 85, "App - Système": 88, "Cracking": 58,
+    "Cryptanalyse": 75, "Forensic": 30, "Programmation": 31,
+    "Réaliste": 12, "Réseau": 48, "Stéganographie": 22,
+    "Web - Client": 36, "Web - Serveur": 87,
 }
 
 
-# ─── HTTP ──────────────────────────────────────────────────────────────────────
 def api_get(path: str):
     url = f"{API_BASE}{path}"
     r = requests.get(url, cookies=COOKIES, headers=HEADERS, timeout=TIMEOUT)
@@ -80,28 +65,39 @@ def api_get(path: str):
     return r.json()
 
 
-# ─── BUILD ─────────────────────────────────────────────────────────────────────
 def build_payload(user: dict) -> dict:
     validations = user.get("validations") or []
-    print(f"📋 {len(validations)} challenges validés trouvés")
+    print(f"📋 {len(validations)} challenges validés au total\n")
 
-    # Comptage par id_rubrique → domaine
-    solved = {d: 0 for d in DOMAINS_DISPLAY}
-    unknown_rubriques = {}
-
+    # Groupement par id_rubrique
+    by_rubrique = defaultdict(list)
     for v in validations:
-        id_rub = str(v.get("id_rubrique", ""))
+        id_rub = str(v.get("id_rubrique", "?"))
+        title = v.get("titre", "(sans titre)")
+        by_rubrique[id_rub].append(title)
+
+    # Affichage du contenu de chaque id_rubrique
+    print("📊 Challenges groupés par id_rubrique :")
+    for id_rub in sorted(by_rubrique.keys(), key=lambda x: int(x) if x.isdigit() else 9999):
+        domain = RUBRIQUE_TO_DOMAIN.get(id_rub, "❓ INCONNU")
+        titles = by_rubrique[id_rub]
+        print(f"\n   📁 id_rubrique={id_rub} → {domain} ({len(titles)} challenges)")
+        for t in titles[:5]:
+            print(f"      - {t}")
+        if len(titles) > 5:
+            print(f"      ... et {len(titles) - 5} autres")
+
+    print("\n" + "=" * 50)
+
+    # Comptage par domaine
+    solved = {d: 0 for d in DOMAINS_DISPLAY}
+    for id_rub, titles in by_rubrique.items():
         domain = RUBRIQUE_TO_DOMAIN.get(id_rub)
-        if domain and domain in solved:
-            solved[domain] += 1
-        else:
-            unknown_rubriques[id_rub] = unknown_rubriques.get(id_rub, 0) + 1
+        if domain in solved:
+            solved[domain] += len(titles)
 
-    if unknown_rubriques:
-        print(f"   ⚠️  Rubriques inconnues : {unknown_rubriques}")
-
-    # Construction du payload
     domains_payload = []
+    print("\n🎯 Résultat final :")
     for d in DOMAINS_DISPLAY:
         s = solved[d]
         t = DOMAIN_TOTALS.get(d, 0)
@@ -127,7 +123,6 @@ def build_payload(user: dict) -> dict:
     }
 
 
-# ─── MAIN ──────────────────────────────────────────────────────────────────────
 def main() -> int:
     print(f"📥 Récupération du profil id={USER_ID}…")
     user = api_get(f"/auteurs/{USER_ID}")
