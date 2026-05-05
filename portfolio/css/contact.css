@@ -121,78 +121,25 @@
 .avail-label { font-size: 11px; color: var(--muted); font-weight: 500; margin-bottom: 3px; }
 .avail-value { font-size: 13px; font-weight: 600; }
 
-/* Contact form */
-.form-card {
+/* Documents card */
+.documents-card {
   background: var(--white);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
 }
 
-.form-title {
+.documents-title {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.form-group { margin-bottom: 16px; }
-
-.form-group label {
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
   margin-bottom: 6px;
-  color: var(--text);
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 11px 14px;
-  background: var(--bg);
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: var(--text);
-  transition: border-color 0.2s;
-  outline: none;
-  resize: none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--accent);
-  background: var(--white);
-}
-
-.form-group textarea { height: 100px; }
-
-.form-submit {
-  width: 100%;
-  padding: 13px;
-  background: var(--text);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: 'Inter', sans-serif;
-}
-
-.form-submit:hover {
-  background: #333;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-}
-
-.form-submit.success {
-  background: var(--green);
-  transform: none;
-  box-shadow: none;
+.documents-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 20px;
 }
 
 @media (max-width: 700px) {
