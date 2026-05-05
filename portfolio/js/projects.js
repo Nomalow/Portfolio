@@ -35,6 +35,30 @@ function initFilters() {
   });
 }
 
+/* ── BLAGUES PORTFOLIO (rotation aléatoire) ── */
+const PORTFOLIO_JOKES = [
+  {
+    ico: "👀",
+    title: "Euh… vous êtes déjà dessus 😅",
+    desc: "Le projet « Portfolio en ligne », c'est littéralement le site sur lequel vous êtes en train de cliquer. Inception level: 100."
+  },
+  {
+    ico: "🪞",
+    title: "Vous regardez le site… depuis le site",
+    desc: "Pas besoin de PDF pour ce projet, il vous suffit de regarder autour de vous. Joli, n'est-ce pas ?"
+  },
+  {
+    ico: "🤯",
+    title: "Erreur 404 : votre cerveau a buggé",
+    desc: "Ouvrir la doc d'un portfolio depuis ce même portfolio… vous venez de créer une boucle infinie."
+  },
+  {
+    ico: "🎬",
+    title: "Plot twist du siècle",
+    desc: "Spoiler alert : le projet, c'est ce site. Vous êtes le héros de l'histoire. 🍿"
+  }
+];
+
 /* ── MODALE PDF ── */
 function initModal() {
   const overlay     = document.getElementById('modalOverlay');
@@ -79,6 +103,32 @@ function initModal() {
       /* Ouvre la modale */
       overlay.classList.add('open');
       document.body.classList.add('modal-open');
+
+      /* ── CAS SPÉCIAL : carte "Portfolio en ligne" ── */
+      if (card.dataset.easter === 'portfolio') {
+        const joke = PORTFOLIO_JOKES[Math.floor(Math.random() * PORTFOLIO_JOKES.length)];
+
+        /* Cache le download (pas de PDF à télécharger) */
+        modalDl.style.display = 'none';
+
+        /* Affiche le message de blague à la place */
+        loading.style.display  = 'none';
+        iframe.style.display   = 'none';
+        errorBox.style.display = 'flex';
+        errorBox.querySelector('.modal-error-ico').textContent       = joke.ico;
+        errorBox.querySelector('.modal-error-title').textContent     = joke.title;
+        errorBox.querySelector('.modal-error-desc').innerHTML        = joke.desc;
+        return;
+      }
+
+      /* Réaffiche le bouton télécharger pour les autres projets */
+      modalDl.style.display = '';
+
+      /* Restaure le message d'erreur par défaut (au cas où il a été modifié) */
+      errorBox.querySelector('.modal-error-ico').textContent   = '📂';
+      errorBox.querySelector('.modal-error-title').textContent = 'PDF introuvable';
+      errorBox.querySelector('.modal-error-desc').innerHTML    =
+        'Ajoute le fichier dans le dossier <code>pdfs/</code> de ton repo GitHub.';
 
       /* Vérifie que le PDF existe avant de charger */
       fetch(pdf, { method: 'HEAD' })
