@@ -31,129 +31,171 @@
 
       <div class="filter-bar reveal">
         <button class="filter-btn active" data-filter="all">Tous</button>
+        <button class="filter-btn" data-filter="reseau">Réseau</button>
+        <button class="filter-btn" data-filter="serveurs">Serveurs</button>
+        <button class="filter-btn" data-filter="systeme">Système</button>
         <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="ia">IA</button>
-        <button class="filter-btn" data-filter="mobile">Mobile</button>
       </div>
 
       <div class="projects-grid">
 
+        <button class="project-card reveal" data-cat="serveurs"
+          data-name="Serveur de messagerie Postfix" data-ico="📧"
+          data-pdf="pdfs/postfix.pdf"
+          data-stack="Postfix,Linux,SMTP" data-status="done">
+          <div class="proj-top">
+            <div class="proj-ico">📧</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Serveur de messagerie Postfix</p>
+          <p class="proj-desc">Mise en place d'un serveur SMTP Postfix sous Linux pour la gestion des e-mails internes avec configuration des règles de routage et de sécurité.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Postfix</span>
+              <span class="stack-tag">Linux</span>
+              <span class="stack-tag">SMTP</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </button>
+
+        <button class="project-card reveal" data-cat="reseau"
+          data-name="Serveur proxy Squid" data-ico="🛡️"
+          data-pdf="pdfs/squid.pdf"
+          data-stack="Squid,Linux,ACL" data-status="done">
+          <div class="proj-top">
+            <div class="proj-ico">🛡️</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Serveur proxy Squid</p>
+          <p class="proj-desc">Déploiement d'un proxy Squid pour filtrer le trafic web, gérer le cache et appliquer des règles d'accès Internet pour les utilisateurs.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Squid</span>
+              <span class="stack-tag">Linux</span>
+              <span class="stack-tag">ACL</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </button>
+
+        <button class="project-card reveal" data-cat="serveurs"
+          data-name="Services FTP / FTPS" data-ico="📁"
+          data-pdf="pdfs/ftp.pdf"
+          data-stack="vsftpd,FTPS,SSL/TLS" data-status="done">
+          <div class="proj-top">
+            <div class="proj-ico">📁</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Services FTP / FTPS</p>
+          <p class="proj-desc">Mise en place de services FTP et FTPS sécurisés pour le transfert de fichiers avec chiffrement SSL/TLS et gestion des accès utilisateurs.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">vsftpd</span>
+              <span class="stack-tag">FTPS</span>
+              <span class="stack-tag">SSL/TLS</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </button>
+
+        <button class="project-card reveal" data-cat="reseau"
+          data-name="DNS Maître / Secondaire" data-ico="🌐"
+          data-pdf="pdfs/dns.pdf"
+          data-stack="Bind9,DNS,Linux" data-status="done">
+          <div class="proj-top">
+            <div class="proj-ico">🌐</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">DNS Maître / Secondaire</p>
+          <p class="proj-desc">Configuration d'une architecture DNS redondante avec un serveur maître et un serveur secondaire pour assurer la résolution de noms en haute disponibilité.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Bind9</span>
+              <span class="stack-tag">DNS</span>
+              <span class="stack-tag">Linux</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </button>
+
+        <button class="project-card reveal" data-cat="serveurs"
+          data-name="Serveur de fichiers Samba" data-ico="🗂️"
+          data-pdf="pdfs/samba.pdf"
+          data-stack="Samba,Linux,SMB" data-status="done">
+          <div class="proj-top">
+            <div class="proj-ico">🗂️</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">Serveur de fichiers Samba</p>
+          <p class="proj-desc">Installation d'un serveur Samba pour le partage de fichiers entre postes Linux et Windows avec gestion des droits et des partages utilisateurs.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">Samba</span>
+              <span class="stack-tag">Linux</span>
+              <span class="stack-tag">SMB</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </button>
+
+        <button class="project-card reveal" data-cat="systeme"
+          data-name="RAID 5 — Redondance des données" data-ico="💾"
+          data-pdf="pdfs/raid5.pdf"
+          data-stack="RAID 5,mdadm,Linux" data-status="done">
+          <div class="proj-top">
+            <div class="proj-ico">💾</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">RAID 5 — Redondance des données</p>
+          <p class="proj-desc">Mise en place d'une grappe RAID 5 logicielle pour assurer la redondance des données et la tolérance aux pannes sur un serveur de stockage.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">RAID 5</span>
+              <span class="stack-tag">mdadm</span>
+              <span class="stack-tag">Linux</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </button>
+
+        <button class="project-card reveal" data-cat="reseau"
+          data-name="VPN, ACL, Port Security" data-ico="🔒"
+          data-pdf="pdfs/securisation.pdf"
+          data-stack="VPN,ACL,Cisco" data-status="done">
+          <div class="proj-top">
+            <div class="proj-ico">🔒</div>
+            <span class="proj-arrow">↗</span>
+          </div>
+          <p class="proj-name">VPN, ACL, Port Security</p>
+          <p class="proj-desc">Sécurisation d'une infrastructure réseau via la mise en place d'un VPN, de listes de contrôle d'accès (ACL) et du Port Security sur les commutateurs.</p>
+          <div class="proj-footer">
+            <div class="proj-stack">
+              <span class="stack-tag">VPN</span>
+              <span class="stack-tag">ACL</span>
+              <span class="stack-tag">Cisco</span>
+            </div>
+            <span class="proj-status status-done">✓ Terminé</span>
+          </div>
+        </button>
+
         <button class="project-card reveal" data-cat="web"
-          data-name="E-Commerce App" data-ico="🛒"
-          data-pdf="pdfs/ecommerce.pdf"
-          data-stack="React,Node.js,MongoDB" data-status="done">
+          data-name="Portfolio en ligne" data-ico="💼"
+          data-pdf="pdfs/portfolio.pdf"
+          data-stack="HTML,CSS,JavaScript" data-status="wip">
           <div class="proj-top">
-            <div class="proj-ico">🛒</div>
+            <div class="proj-ico">💼</div>
             <span class="proj-arrow">↗</span>
           </div>
-          <p class="proj-name">E-Commerce App</p>
-          <p class="proj-desc">Plateforme de vente en ligne avec gestion des stocks, paiement Stripe intégré et tableau de bord admin en temps réel.</p>
+          <p class="proj-name">Portfolio en ligne</p>
+          <p class="proj-desc">Création d'un portfolio en ligne pour valoriser mon identité numérique, présenter mes projets, mes compétences et mon parcours professionnel.</p>
           <div class="proj-footer">
             <div class="proj-stack">
-              <span class="stack-tag">React</span>
-              <span class="stack-tag">Node.js</span>
-              <span class="stack-tag">MongoDB</span>
-            </div>
-            <span class="proj-status status-done">✓ Terminé</span>
-          </div>
-        </button>
-
-        <button class="project-card reveal" data-cat="ia"
-          data-name="Chatbot IA" data-ico="🤖"
-          data-pdf="pdfs/chatbot.pdf"
-          data-stack="Python,FastAPI,OpenAI" data-status="done">
-          <div class="proj-top">
-            <div class="proj-ico">🤖</div>
-            <span class="proj-arrow">↗</span>
-          </div>
-          <p class="proj-name">Chatbot IA</p>
-          <p class="proj-desc">Assistant conversationnel qui répond aux questions sur une base de connaissances personnalisée grâce à un LLM.</p>
-          <div class="proj-footer">
-            <div class="proj-stack">
-              <span class="stack-tag">Python</span>
-              <span class="stack-tag">FastAPI</span>
-              <span class="stack-tag">OpenAI</span>
-            </div>
-            <span class="proj-status status-done">✓ Terminé</span>
-          </div>
-        </button>
-
-        <button class="project-card reveal" data-cat="web"
-          data-name="Dashboard Analytics" data-ico="📊"
-          data-pdf="pdfs/dashboard.pdf"
-          data-stack="Vue.js,D3.js,PostgreSQL" data-status="done">
-          <div class="proj-top">
-            <div class="proj-ico">📊</div>
-            <span class="proj-arrow">↗</span>
-          </div>
-          <p class="proj-name">Dashboard Analytics</p>
-          <p class="proj-desc">Tableau de bord interactif pour visualiser des métriques métier avec graphiques dynamiques et filtres avancés.</p>
-          <div class="proj-footer">
-            <div class="proj-stack">
-              <span class="stack-tag">Vue.js</span>
-              <span class="stack-tag">D3.js</span>
-              <span class="stack-tag">PostgreSQL</span>
-            </div>
-            <span class="proj-status status-done">✓ Terminé</span>
-          </div>
-        </button>
-
-        <button class="project-card reveal" data-cat="web"
-          data-name="Auth System" data-ico="🔐"
-          data-pdf="pdfs/auth.pdf"
-          data-stack="Express,JWT,Docker" data-status="done">
-          <div class="proj-top">
-            <div class="proj-ico">🔐</div>
-            <span class="proj-arrow">↗</span>
-          </div>
-          <p class="proj-name">Auth System</p>
-          <p class="proj-desc">Système d'authentification sécurisé avec JWT, OAuth2, double authentification et gestion des rôles.</p>
-          <div class="proj-footer">
-            <div class="proj-stack">
-              <span class="stack-tag">Express</span>
-              <span class="stack-tag">JWT</span>
-              <span class="stack-tag">Docker</span>
-            </div>
-            <span class="proj-status status-done">✓ Terminé</span>
-          </div>
-        </button>
-
-        <button class="project-card reveal" data-cat="mobile"
-          data-name="App Mobile Todo" data-ico="📱"
-          data-pdf="pdfs/todo.pdf"
-          data-stack="React Native,Firebase" data-status="wip">
-          <div class="proj-top">
-            <div class="proj-ico">📱</div>
-            <span class="proj-arrow">↗</span>
-          </div>
-          <p class="proj-name">App Mobile Todo</p>
-          <p class="proj-desc">Application mobile de gestion de tâches avec synchronisation cloud, notifications et mode hors-ligne.</p>
-          <div class="proj-footer">
-            <div class="proj-stack">
-              <span class="stack-tag">React Native</span>
-              <span class="stack-tag">Firebase</span>
+              <span class="stack-tag">HTML</span>
+              <span class="stack-tag">CSS</span>
+              <span class="stack-tag">JavaScript</span>
             </div>
             <span class="proj-status status-wip">⏳ En cours</span>
-          </div>
-        </button>
-
-        <button class="project-card reveal" data-cat="ia"
-          data-name="Moteur de recommandation" data-ico="🔍"
-          data-pdf="pdfs/recommandation.pdf"
-          data-stack="Python,scikit-learn,Pandas" data-status="done">
-          <div class="proj-top">
-            <div class="proj-ico">🔍</div>
-            <span class="proj-arrow">↗</span>
-          </div>
-          <p class="proj-name">Moteur de recommandation</p>
-          <p class="proj-desc">Algorithme de recommandation de contenu basé sur les préférences utilisateur avec filtrage collaboratif.</p>
-          <div class="proj-footer">
-            <div class="proj-stack">
-              <span class="stack-tag">Python</span>
-              <span class="stack-tag">scikit-learn</span>
-              <span class="stack-tag">Pandas</span>
-            </div>
-            <span class="proj-status status-done">✓ Terminé</span>
           </div>
         </button>
 
